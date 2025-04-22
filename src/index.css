@@ -1,10 +1,13 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    --background: 210 40% 98%;
     --foreground: 222.2 84% 4.9%;
 
     --card: 0 0% 100%;
@@ -33,22 +36,6 @@
     --ring: 222.2 84% 4.9%;
 
     --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
@@ -79,14 +66,6 @@
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 }
 
@@ -95,7 +74,108 @@
     @apply border-border;
   }
 
+  html {
+    font-family: 'Inter', sans-serif;
+    scroll-behavior: smooth;
+  }
+
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
+  }
+
+  .scroll-section {
+    @apply min-h-screen flex flex-col items-center justify-center;
+  }
+  
+  .reveal {
+    @apply opacity-0 transition-all duration-700 ease-out;
+  }
+  
+  .reveal.active {
+    @apply opacity-100 translate-y-0;
+  }
+  
+  .reveal-bottom {
+    @apply translate-y-20;
+  }
+  
+  .reveal-left {
+    @apply -translate-x-20;
+  }
+  
+  .reveal-right {
+    @apply translate-x-20;
+  }
+  
+  .reveal-delay-1 {
+    transition-delay: 0.1s;
+  }
+  
+  .reveal-delay-2 {
+    transition-delay: 0.2s;
+  }
+  
+  .reveal-delay-3 {
+    transition-delay: 0.3s;
+  }
+  
+  .reveal-delay-4 {
+    transition-delay: 0.4s;
+  }
+  
+  .reveal-delay-5 {
+    transition-delay: 0.5s;
+  }
+
+  /* Audio Visualizer */
+  .audio-bar {
+    @apply bg-aerons-copper h-16 w-1 mx-0.5 rounded-full;
+  }
+  
+  /* Timeline */
+  .timeline-item {
+    @apply relative pl-8 pb-10 border-l border-aerons-300 last:border-0 last:pb-0;
+  }
+  
+  .timeline-item::before {
+    content: '';
+    @apply absolute left-[-8px] top-0 w-4 h-4 rounded-full bg-aerons-600;
+  }
+  
+  /* Parallax sections */
+  .parallax-container {
+    @apply relative overflow-hidden;
+  }
+  
+  .parallax-bg {
+    @apply absolute top-0 left-0 w-full h-[120%] -z-10 bg-cover bg-center;
+    transform: translateZ(-1px) scale(2);
+  }
+  
+  .custom-cursor {
+    @apply fixed w-8 h-8 rounded-full bg-aerons-copper/20 border border-aerons-copper pointer-events-none z-50 -ml-4 -mt-4 opacity-0 transition-opacity duration-300;
+    mix-blend-mode: difference;
+  }
+  
+  /* Product category styles */
+  .category-card {
+    @apply relative overflow-hidden bg-aerons-100 rounded-lg p-6 transition-all duration-300 hover:shadow-lg;
+  }
+  
+  .category-card:hover .category-overlay {
+    @apply opacity-100;
+  }
+  
+  .category-overlay {
+    @apply absolute inset-0 bg-aerons-blue/80 opacity-0 transition-opacity duration-300 flex items-center justify-center;
+  }
+  
+  /* Button styles */
+  .btn-primary {
+    @apply bg-aerons-blue text-white px-6 py-3 rounded-md hover:bg-aerons-700 transition-colors duration-200;
+  }
+  
+  .btn-secondary {
+    @apply bg-transparent border border-aerons-copper text-aerons-copper px-6 py-3 rounded-md hover:bg-aerons-copper hover:text-white transition-colors duration-200;
   }
 }
