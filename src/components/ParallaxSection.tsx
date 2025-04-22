@@ -6,13 +6,15 @@ interface ParallaxSectionProps {
   backgroundImage?: string;
   className?: string;
   speed?: number;
+  id?: string; // Added id prop to the interface
 }
 
 const ParallaxSection = ({ 
   children, 
   backgroundImage, 
   className = "",
-  speed = 0.5 
+  speed = 0.5,
+  id
 }: ParallaxSectionProps) => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const backgroundRef = useRef<HTMLDivElement>(null);
@@ -36,7 +38,7 @@ const ParallaxSection = ({
   }, [speed]);
 
   return (
-    <div ref={sectionRef} className={`parallax-container ${className}`}>
+    <div ref={sectionRef} id={id} className={`parallax-container ${className}`}>
       {backgroundImage && (
         <div 
           ref={backgroundRef} 
