@@ -5,6 +5,87 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  .bg-gradient-conic {
+    background-image: conic-gradient(var(--tw-gradient-stops));
+  }
+}
+
+/* Custom Animations */
+.animate-spotlight {
+  animation: spotlight 2s ease .75s 1 forwards;
+}
+
+@keyframes spotlight {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Lamp Effect Enhancements */
+.bg-dot-pattern {
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.lamp-glow {
+  animation: lamp-pulse 4s ease-in-out infinite;
+}
+
+@keyframes lamp-pulse {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+/* Audio Visualizer Bars */
+.audio-bar {
+  width: 4px;
+  height: 24px;
+  margin: 0 2px;
+  background: linear-gradient(to top, theme('colors.aerons.copper'), rgba(255, 255, 255, 0.7));
+  border-radius: 2px;
+}
+
+.animate-audio-wave-1 {
+  animation: audio-wave 1s ease-in-out infinite;
+}
+
+.animate-audio-wave-2 {
+  animation: audio-wave 1.2s ease-in-out infinite;
+}
+
+.animate-audio-wave-3 {
+  animation: audio-wave 0.8s ease-in-out infinite;
+}
+
+.animate-audio-wave-4 {
+  animation: audio-wave 1.5s ease-in-out infinite;
+}
+
+.animate-audio-wave-5 {
+  animation: audio-wave 0.9s ease-in-out infinite;
+}
+
+@keyframes audio-wave {
+  0%, 100% {
+    height: 24px;
+  }
+  50% {
+    height: 64px;
+  }
+}
+
 @layer base {
   :root {
     --background: 210 40% 98%;
