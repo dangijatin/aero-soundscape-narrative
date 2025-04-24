@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Logo from './Logo';
 
@@ -48,7 +47,7 @@ const Footer = () => {
             <h4 className="text-lg font-medium mb-4">Contact</h4>
             <ul className="space-y-2">
               <li className="text-aerons-300">
-                Aerons India Exim Pvt. Ltd.<br />
+                audio&lights<br />
                 New Delhi, India
               </li>
               <li className="text-aerons-300">

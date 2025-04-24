@@ -1,4 +1,3 @@
-
 import React from 'react';
 import ScrollReveal from '../ScrollReveal';
 import { Facebook, Instagram, Mail, MapPin, Phone } from 'lucide-react';
@@ -13,106 +12,106 @@ const ContactSection = () => {
           </h2>
         </ScrollReveal>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
-          <ScrollReveal direction="left">
-            <div>
-              <h3 className="text-2xl font-bold mb-6">Get In Touch</h3>
-              <p className="text-aerons-700 leading-relaxed mb-8">
-                Whether you're interested in our audio solutions, looking for a local dealer, or want to discuss a custom installation, we're here to help. Reach out to our headquarters or connect with us on social media.
-              </p>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+        <ScrollReveal direction="left">
+          <div>
+            <h3 className="text-2xl font-bold mb-6">Get In Touch</h3>
+            <p className="text-aerons-700 leading-relaxed mb-8">
+              Whether you're interested in our audio solutions, looking for a local dealer, or want to discuss a custom installation, we're here to help. Reach out to our headquarters or connect with us on social media.
+            </p>
+            
+            <div className="space-y-6">
+              <div className="flex items-start space-x-4">
+                <MapPin className="text-aerons-copper flex-shrink-0 mt-1" />
+                <div>
+                  <h4 className="font-medium mb-1">Headquarters</h4>
+                  <p className="text-aerons-600">
+                    audio&lights<br />
+                    New Delhi, India
+                  </p>
+                </div>
+              </div>
               
-              <div className="space-y-6">
-                <div className="flex items-start space-x-4">
-                  <MapPin className="text-aerons-copper flex-shrink-0 mt-1" />
-                  <div>
-                    <h4 className="font-medium mb-1">Headquarters</h4>
-                    <p className="text-aerons-600">
-                      Aerons India Exim Pvt. Ltd.<br />
-                      New Delhi, India
-                    </p>
-                  </div>
+              <div className="flex items-start space-x-4">
+                <Phone className="text-aerons-copper flex-shrink-0 mt-1" />
+                <div>
+                  <h4 className="font-medium mb-1">Phone</h4>
+                  <p className="text-aerons-600">+91 1234567890</p>
                 </div>
-                
-                <div className="flex items-start space-x-4">
-                  <Phone className="text-aerons-copper flex-shrink-0 mt-1" />
-                  <div>
-                    <h4 className="font-medium mb-1">Phone</h4>
-                    <p className="text-aerons-600">+91 1234567890</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start space-x-4">
-                  <Mail className="text-aerons-copper flex-shrink-0 mt-1" />
-                  <div>
-                    <h4 className="font-medium mb-1">Email</h4>
-                    <p className="text-aerons-600">info@aeronsindia.com</p>
-                  </div>
+              </div>
+              
+              <div className="flex items-start space-x-4">
+                <Mail className="text-aerons-copper flex-shrink-0 mt-1" />
+                <div>
+                  <h4 className="font-medium mb-1">Email</h4>
+                  <p className="text-aerons-600">info@aeronsindia.com</p>
                 </div>
               </div>
             </div>
-          </ScrollReveal>
-          
-          <ScrollReveal direction="right">
-            <div className="bg-aerons-50 p-8 rounded-lg">
-              <h3 className="text-xl font-bold mb-6">Send Us a Message</h3>
+          </div>
+        </ScrollReveal>
+        
+        <ScrollReveal direction="right">
+          <div className="bg-aerons-50 p-8 rounded-lg">
+            <h3 className="text-xl font-bold mb-6">Send Us a Message</h3>
+            
+            <form className="space-y-4">
+              <div>
+                <label htmlFor="name" className="block text-sm font-medium text-aerons-700 mb-1">
+                  Name
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  className="w-full px-4 py-2 border border-aerons-300 rounded-md focus:outline-none focus:ring-1 focus:ring-aerons-copper"
+                />
+              </div>
               
-              <form className="space-y-4">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-aerons-700 mb-1">
-                    Name
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    className="w-full px-4 py-2 border border-aerons-300 rounded-md focus:outline-none focus:ring-1 focus:ring-aerons-copper"
-                  />
-                </div>
-                
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-aerons-700 mb-1">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    className="w-full px-4 py-2 border border-aerons-300 rounded-md focus:outline-none focus:ring-1 focus:ring-aerons-copper"
-                  />
-                </div>
-                
-                <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-aerons-700 mb-1">
-                    Subject
-                  </label>
-                  <select
-                    id="subject"
-                    className="w-full px-4 py-2 border border-aerons-300 rounded-md focus:outline-none focus:ring-1 focus:ring-aerons-copper"
-                  >
-                    <option>Product Inquiry</option>
-                    <option>Installation Services</option>
-                    <option>Dealer Information</option>
-                    <option>Support</option>
-                    <option>Other</option>
-                  </select>
-                </div>
-                
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-aerons-700 mb-1">
-                    Message
-                  </label>
-                  <textarea
-                    id="message"
-                    rows={4}
-                    className="w-full px-4 py-2 border border-aerons-300 rounded-md focus:outline-none focus:ring-1 focus:ring-aerons-copper"
-                  ></textarea>
-                </div>
-                
-                <button type="submit" className="btn-primary w-full">
-                  Send Message
-                </button>
-              </form>
-            </div>
-          </ScrollReveal>
-        </div>
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-aerons-700 mb-1">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  className="w-full px-4 py-2 border border-aerons-300 rounded-md focus:outline-none focus:ring-1 focus:ring-aerons-copper"
+                />
+              </div>
+              
+              <div>
+                <label htmlFor="subject" className="block text-sm font-medium text-aerons-700 mb-1">
+                  Subject
+                </label>
+                <select
+                  id="subject"
+                  className="w-full px-4 py-2 border border-aerons-300 rounded-md focus:outline-none focus:ring-1 focus:ring-aerons-copper"
+                >
+                  <option>Product Inquiry</option>
+                  <option>Installation Services</option>
+                  <option>Dealer Information</option>
+                  <option>Support</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium text-aerons-700 mb-1">
+                  Message
+                </label>
+                <textarea
+                  id="message"
+                  rows={4}
+                  className="w-full px-4 py-2 border border-aerons-300 rounded-md focus:outline-none focus:ring-1 focus:ring-aerons-copper"
+                ></textarea>
+              </div>
+              
+              <button type="submit" className="btn-primary w-full">
+                Send Message
+              </button>
+            </form>
+          </div>
+        </ScrollReveal>
+      </div>
         
         <ScrollReveal delay={3}>
           <div className="mt-16 text-center">

@@ -2,10 +2,14 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
 const NetworkSection = () => {
-  // States to be highlighted on the map
   const states = [
-    "Gujarat", "Madhya Pradesh", "Chhattisgarh", "Delhi", 
-    "Uttar Pradesh", "Maharashtra", "Karnataka"
+    { name: "Gujarat", coordinates: { x: 135, y: 280 } },
+    { name: "Madhya Pradesh", coordinates: { x: 220, y: 250 } },
+    { name: "Chhattisgarh", coordinates: { x: 270, y: 270 } },
+    { name: "Delhi", coordinates: { x: 200, y: 180 } },
+    { name: "Uttar Pradesh", coordinates: { x: 250, y: 200 } },
+    { name: "Maharashtra", coordinates: { x: 180, y: 300 } },
+    { name: "Karnataka", coordinates: { x: 180, y: 350 } }
   ];
   
   const [activeState, setActiveState] = useState<string | null>(null);
@@ -68,17 +72,17 @@ const NetworkSection = () => {
                 <div className="flex flex-wrap gap-3">
                   {states.map(state => (
                     <motion.button
-                      key={state}
+                      key={state.name}
                       whileHover={{ y: -2 }}
                       className={`px-6 py-3 rounded-full text-sm transition-all duration-200 ${
-                        activeState === state 
+                        activeState === state.name
                           ? 'bg-gradient-to-r from-aerons-copper to-aerons-copper/80 text-white shadow-lg' 
                           : 'bg-aerons-800/50 text-aerons-200 hover:bg-aerons-700/50 hover:text-white'
                       }`}
-                      onMouseEnter={() => setActiveState(state)}
+                      onMouseEnter={() => setActiveState(state.name)}
                       onMouseLeave={() => setActiveState(null)}
                     >
-                      {state}
+                      {state.name}
                     </motion.button>
                   ))}
                 </div>
@@ -94,15 +98,15 @@ const NetworkSection = () => {
           >
             <div className="relative">
               <motion.svg 
-                viewBox="0 0 500 600" 
+                viewBox="0 0 400 500" 
                 className="w-full h-auto"
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1 }}
               >
-                {/* Simplified India map outline */}
-                <motion.path 
-                  d="M200,100 C220,90 250,85 270,90 C290,95 310,110 320,130 C330,150 350,200 370,220 C390,240 400,280 390,320 C380,360 350,400 330,430 C310,460 290,480 260,500 C230,520 190,530 150,520 C110,510 90,480 80,450 C70,420 60,380 70,350 C80,320 110,300 120,270 C130,240 120,210 130,180 C140,150 170,120 200,100 Z" 
+                {/* India map outline - simplified but recognizable */}
+                <motion.path
+                  d="M180,100 C200,80 240,70 260,80 C280,90 290,110 300,130 C310,150 320,180 330,200 C340,220 350,250 340,280 C330,310 310,340 290,370 C270,400 250,420 220,440 C190,460 150,470 120,460 C90,450 70,420 60,390 C50,360 40,320 50,290 C60,260 90,240 100,210 C110,180 100,150 110,120 C120,90 150,60 180,100 Z"
                   fill="url(#map-gradient)"
                   stroke="url(#map-stroke)"
                   strokeWidth="2"
@@ -111,6 +115,7 @@ const NetworkSection = () => {
                   transition={{ duration: 2, ease: "easeInOut" }}
                 />
                 
+                {/* Gradients */}
                 <defs>
                   <linearGradient id="map-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
                     <stop offset="0%" stopColor="#334155" />
@@ -122,38 +127,40 @@ const NetworkSection = () => {
                   </linearGradient>
                 </defs>
                 
-                {/* Highlighted states */}
-                {states.map((state, index) => {
-                  const x = 150 + (index % 4) * 80;
-                  const y = 200 + Math.floor(index / 4) * 100;
-                  const size = 30 + (index * 5);
-                  
-                  return (
+                {/* State markers */}
+                {states.map((state) => (
+                  <motion.g key={state.name}>
                     <motion.circle
-                      key={state}
-                      cx={x}
-                      cy={y}
-                      r={size / 4}
-                      fill={activeState === state ? "#B87333" : "#475569"}
-                      stroke={activeState === state ? "#E2E8F0" : "#334155"}
+                      cx={state.coordinates.x}
+                      cy={state.coordinates.y}
+                      r={activeState === state.name ? 8 : 6}
+                      fill={activeState === state.name ? "#B87333" : "#475569"}
+                      stroke="#E2E8F0"
                       strokeWidth="1"
                       initial={{ scale: 0 }}
                       animate={{ 
                         scale: 1,
-                        opacity: activeState === state ? 0.8 : 0.6 
+                        opacity: activeState === state.name ? 0.8 : 0.6 
                       }}
-                      transition={{ 
-                        duration: 0.5,
-                        delay: index * 0.1
-                      }}
-                      whileHover={{ scale: 1.2 }}
+                      transition={{ duration: 0.5 }}
                     />
-                  );
-                })}
-                
-                {/* Delhi headquarters with pulse animation */}
+                    <motion.text
+                      x={state.coordinates.x}
+                      y={state.coordinates.y - 15}
+                      textAnchor="middle"
+                      fill="#E2E8F0"
+                      fontSize="12"
+                      opacity={activeState === state.name ? 1 : 0}
+                      animate={{ opacity: activeState === state.name ? 1 : 0 }}
+                    >
+                      {state.name}
+                    </motion.text>
+                  </motion.g>
+                ))}
+
+                {/* Delhi HQ marker */}
                 <motion.circle
-                  cx="220"
+                  cx="200"
                   cy="180"
                   r="8"
                   fill="#B87333"
@@ -170,7 +177,7 @@ const NetworkSection = () => {
                   }}
                 />
                 <text
-                  x="220"
+                  x="200"
                   y="160"
                   textAnchor="middle"
                   fill="#E2E8F0"
