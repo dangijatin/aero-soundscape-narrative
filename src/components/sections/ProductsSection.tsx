@@ -8,34 +8,44 @@ const ProductsSection = () => {
     {
       name: "Speakers",
       description: "Active, passive, wall-mount & ceiling types",
-      image: "https://images.unsplash.com/photo-1545454675-3531b543be5d?q=80&w=2070"
+      image: "https://images.unsplash.com/photo-1545454675-3531b543be5d?q=80&w=2070",
+      catalogPath: "/catalogs/speakers.pdf"
     },
     {
       name: "Amplifiers",
       description: "DJ power amps, transformer & direct coupled",
-      image: "https://images.unsplash.com/photo-1558662413-6ccc0eae3ad2?q=80&w=2069"
+      image: "https://images.unsplash.com/photo-1558662413-6ccc0eae3ad2?q=80&w=2069",
+      catalogPath: "/catalogs/amplifiers.pdf"
     },
     {
       name: "Microphones",
       description: "Wired and wireless options for every application",
-      image: "https://images.unsplash.com/photo-1617161712664-864a40fbcf9d?q=80&w=2068"
+      image: "https://images.unsplash.com/photo-1617161712664-864a40fbcf9d?q=80&w=2068",
+      catalogPath: "/catalogs/microphones.pdf"
     },
     {
       name: "Mixers",
       description: "Digital and analog mixing solutions",
-      image: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=2070"
+      image: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=2070",
+      catalogPath: "/catalogs/mixers.pdf"
     },
     {
       name: "Processors",
       description: "Advanced audio processing equipment",
-      image: "https://images.unsplash.com/photo-1601142634808-38923eb7615f?q=80&w=2070"
+      image: "https://images.unsplash.com/photo-1601142634808-38923eb7615f?q=80&w=2070",
+      catalogPath: "/catalogs/processors.pdf"
     },
     {
       name: "Transducers",
       description: "High-quality audio conversion devices",
-      image: "https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?q=80&w=2069"
+      image: "https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?q=80&w=2069",
+      catalogPath: "/catalogs/transducers.pdf"
     }
   ];
+
+  const handleCatalogClick = (catalogPath: string) => {
+    window.open(catalogPath, '_blank');
+  };
 
   return (
     <section id="products" className="scroll-section py-24 bg-white">
@@ -67,13 +77,13 @@ const ProductsSection = () => {
                   <p className="text-aerons-100 text-sm">{category.description}</p>
                 </div>
                 <div className="category-overlay">
-                  <a 
-                    href="#" 
+                  <button 
+                    onClick={() => handleCatalogClick(category.catalogPath)}
                     className="btn-secondary flex items-center gap-2"
                   >
                     <FileText size={18} />
                     View Catalogue
-                  </a>
+                  </button>
                 </div>
               </div>
             </ScrollReveal>
@@ -82,7 +92,7 @@ const ProductsSection = () => {
         
         <ScrollReveal delay={5}>
           <div className="mt-16 text-center">
-            <a href="#" className="btn-primary inline-flex items-center gap-2">
+            <a href="/catalogs/complete-catalog.pdf" className="btn-primary inline-flex items-center gap-2" target="_blank" rel="noopener noreferrer">
               <FileText size={18} />
               Download Complete Catalogue
             </a>
