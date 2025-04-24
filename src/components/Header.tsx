@@ -1,6 +1,8 @@
+
 import React, { useEffect, useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { motion } from 'framer-motion';
+import Logo from './Logo';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -40,12 +42,12 @@ const Header = () => {
       <div className="container mx-auto px-4 flex justify-between items-center">
         <motion.a 
           href="#" 
-          className="text-2xl font-bold text-white"
+          className="text-2xl font-bold"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.5 }}
         >
-          AERONS INDIA
+          <Logo />
         </motion.a>
         
         <nav className="hidden md:flex items-center space-x-8">
@@ -75,7 +77,6 @@ const Header = () => {
         </motion.button>
       </div>
       
-      {/* Mobile menu */}
       {mobileMenuOpen && (
         <motion.div 
           className="fixed inset-0 bg-black/95 backdrop-blur-lg z-50 flex flex-col"
@@ -84,7 +85,7 @@ const Header = () => {
           exit={{ opacity: 0 }}
         >
           <div className="flex justify-between items-center p-4 border-b border-white/10">
-            <span className="text-2xl font-bold text-white">AERONS INDIA</span>
+            <Logo />
             <button 
               className="text-white/70 hover:text-white transition-colors duration-200"
               onClick={() => setMobileMenuOpen(false)}
