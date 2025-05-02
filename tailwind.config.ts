@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 import animate from "tailwindcss-animate";
 
@@ -53,6 +54,35 @@ export default {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))'
         },
+        // New theme colors
+        amber: {
+          DEFAULT: '#eda33c',
+          50: '#fef9ed', 
+          100: '#fcf1d7',
+          200: '#f9e2ae',
+          300: '#f5d386',
+          400: '#f1c55e',
+          500: '#eda33c',  // Main amber color
+          600: '#e5922d',
+          700: '#c47625',
+          800: '#9c5d24',
+          900: '#7a4a22',
+          950: '#462c14',
+        },
+        navy: {
+          DEFAULT: '#35579f',
+          50: '#edf1fb',
+          100: '#d8e0f5',
+          200: '#b9c8ec',
+          300: '#8fa6de',
+          400: '#6280cf',
+          500: '#4565c0',
+          600: '#35579f',  // Main navy color
+          700: '#2e4884',
+          800: '#283c6c',
+          900: '#263559',
+          950: '#1a223a',
+        },
         aerons: {
           DEFAULT: '#0F172A',
           50: '#F8FAFC',
@@ -66,8 +96,8 @@ export default {
           800: '#1E293B',
           900: '#0F172A',
           950: '#020617',
-          copper: '#B87333',
-          blue: '#24426C'
+          copper: '#eda33c',  // Updated to amber
+          blue: '#35579f'     // Updated to navy
         }
       },
       borderRadius: {

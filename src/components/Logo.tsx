@@ -10,7 +10,7 @@ const Logo = () => {
           <span className="absolute -top-3 -left-[2px] text-[10px]">♪</span>
         </span>
         o</span>
-      <span className="text-[#A1D6F3]">&l
+      <span className="text-[#35579f]">&l
         <span className="relative">
           i
           <span className="absolute -top-3 -left-[2px] text-[10px]">✦</span>

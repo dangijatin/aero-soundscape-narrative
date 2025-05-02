@@ -53,7 +53,7 @@
   width: 4px;
   height: 24px;
   margin: 0 2px;
-  background: linear-gradient(to top, theme('colors.aerons.copper'), rgba(255, 255, 255, 0.7));
+  background: linear-gradient(to top, theme('colors.amber.500'), rgba(255, 255, 255, 0.7));
   border-radius: 2px;
 }
 
@@ -97,16 +97,16 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 222.2 47.4% 11.2%;
+    --primary: 38 84% 58%; /* amber-500 */
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 221 49% 41%; /* navy-600 */
+    --secondary-foreground: 210 40% 98%;
 
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 210 40% 96.1%;
+    --accent: 38 84% 58%;
     --accent-foreground: 222.2 47.4% 11.2%;
 
     --destructive: 0 84.2% 60.2%;
@@ -114,39 +114,39 @@
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --ring: 221 49% 41%;
 
     --radius: 0.5rem;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
+    --background: 221 49% 15%;
     --foreground: 210 40% 98%;
 
-    --card: 222.2 84% 4.9%;
+    --card: 221 49% 20%;
     --card-foreground: 210 40% 98%;
 
-    --popover: 222.2 84% 4.9%;
+    --popover: 221 49% 15%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 210 40% 98%;
+    --primary: 38 84% 58%;
     --primary-foreground: 222.2 47.4% 11.2%;
 
-    --secondary: 217.2 32.6% 17.5%;
+    --secondary: 221 49% 30%;
     --secondary-foreground: 210 40% 98%;
 
-    --muted: 217.2 32.6% 17.5%;
+    --muted: 221 49% 25%;
     --muted-foreground: 215 20.2% 65.1%;
 
-    --accent: 217.2 32.6% 17.5%;
+    --accent: 38 84% 58%;
     --accent-foreground: 210 40% 98%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --border: 221 49% 30%;
+    --input: 221 49% 30%;
+    --ring: 38 84% 58%;
   }
 }
 
@@ -210,17 +210,17 @@
 
   /* Audio Visualizer */
   .audio-bar {
-    @apply bg-aerons-copper h-16 w-1 mx-0.5 rounded-full;
+    @apply bg-amber-500 h-16 w-1 mx-0.5 rounded-full;
   }
   
   /* Timeline */
   .timeline-item {
-    @apply relative pl-8 pb-10 border-l border-aerons-300 last:border-0 last:pb-0;
+    @apply relative pl-8 pb-10 border-l border-navy-300 last:border-0 last:pb-0;
   }
   
   .timeline-item::before {
     content: '';
-    @apply absolute left-[-8px] top-0 w-4 h-4 rounded-full bg-aerons-600;
+    @apply absolute left-[-8px] top-0 w-4 h-4 rounded-full bg-navy-600;
   }
   
   /* Parallax sections */
@@ -234,13 +234,13 @@
   }
   
   .custom-cursor {
-    @apply fixed w-8 h-8 rounded-full bg-aerons-copper/20 border border-aerons-copper pointer-events-none z-50 -ml-4 -mt-4 opacity-0 transition-opacity duration-300;
+    @apply fixed w-8 h-8 rounded-full bg-amber-500/20 border border-amber-500 pointer-events-none z-50 -ml-4 -mt-4 opacity-0 transition-opacity duration-300;
     mix-blend-mode: difference;
   }
   
   /* Product category styles */
   .category-card {
-    @apply relative overflow-hidden bg-aerons-100 rounded-lg p-6 transition-all duration-300 hover:shadow-lg;
+    @apply relative overflow-hidden bg-navy-100 rounded-lg p-6 transition-all duration-300 hover:shadow-lg;
   }
   
   .category-card:hover .category-overlay {
@@ -248,15 +248,15 @@
   }
   
   .category-overlay {
-    @apply absolute inset-0 bg-aerons-blue/80 opacity-0 transition-opacity duration-300 flex items-center justify-center;
+    @apply absolute inset-0 bg-navy-600/80 opacity-0 transition-opacity duration-300 flex items-center justify-center;
   }
   
   /* Button styles */
   .btn-primary {
-    @apply bg-aerons-blue text-white px-6 py-3 rounded-md hover:bg-aerons-700 transition-colors duration-200;
+    @apply bg-navy-600 text-white px-6 py-3 rounded-md hover:bg-navy-700 transition-colors duration-200;
   }
   
   .btn-secondary {
-    @apply bg-transparent border border-aerons-copper text-aerons-copper px-6 py-3 rounded-md hover:bg-aerons-copper hover:text-white transition-colors duration-200;
+    @apply bg-transparent border border-amber-500 text-amber-500 px-6 py-3 rounded-md hover:bg-amber-500 hover:text-white transition-colors duration-200;
   }
 }
