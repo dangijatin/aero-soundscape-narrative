@@ -4,13 +4,9 @@ import { motion } from 'framer-motion';
 
 const NetworkSection = () => {
   const states = [
-    { name: "Gujarat", coordinates: { x: 135, y: 280 } },
-    { name: "Madhya Pradesh", coordinates: { x: 220, y: 250 } },
-    { name: "Chhattisgarh", coordinates: { x: 270, y: 270 } },
-    { name: "Delhi", coordinates: { x: 200, y: 180 } },
-    { name: "Uttar Pradesh", coordinates: { x: 250, y: 200 } },
-    { name: "Maharashtra", coordinates: { x: 180, y: 300 } },
-    { name: "Karnataka", coordinates: { x: 180, y: 350 } }
+    { name: "Ahmedabad", coordinates: { x: 135, y: 280 } },
+    { name: "Bhopal", coordinates: { x: 220, y: 250 } },
+    { name: "Raipur", coordinates: { x: 270, y: 270 } }
   ];
   
   const [activeState, setActiveState] = useState<string | null>(null);
