@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { motion } from 'framer-motion';
 
@@ -16,17 +17,17 @@ const TimelineEvent = ({ event, index, total }) => {
     >
       {/* Timeline line */}
       {index !== total - 1 && (
-        <div className="absolute left-8 top-8 bottom-0 w-px bg-gradient-to-b from-aerons-copper/50 to-aerons-200/30" />
+        <div className="absolute left-8 top-8 bottom-0 w-px bg-gradient-to-b from-audiolights-copper/50 to-audiolights-200/30" />
       )}
       
       {/* Event content */}
       <div className="relative flex items-start gap-6">
-        <div className="flex-shrink-0 w-16 h-16 bg-white rounded-full shadow-xl flex items-center justify-center border-2 border-aerons-copper/20">
-          <span className="font-bold text-aerons-copper">{event.year}</span>
+        <div className="flex-shrink-0 w-16 h-16 bg-white rounded-full shadow-xl flex items-center justify-center border-2 border-audiolights-copper/20">
+          <span className="font-bold text-audiolights-copper">{event.year}</span>
         </div>
         <div>
           <h4 className="text-xl font-semibold mb-2 tracking-tight">{event.title}</h4>
-          <p className="text-aerons-600/90 leading-relaxed">{event.description}</p>
+          <p className="text-audiolights-600/90 leading-relaxed">{event.description}</p>
         </div>
       </div>
     </motion.div>
@@ -38,7 +39,7 @@ const StorySection = () => {
     {
       year: "1962",
       title: "Our Beginning",
-      description: "Aerons India was established as a manufacturer of audio components."
+      description: "Audio&Lights was established as a manufacturer of audio components."
     },
     {
       year: "2000",
@@ -63,7 +64,7 @@ const StorySection = () => {
   ];
 
   return (
-    <section id="story" className="scroll-section py-32 bg-gradient-to-b from-white to-aerons-50/50 relative overflow-hidden">
+    <section id="story" className="scroll-section py-32 bg-gradient-to-b from-white to-audiolights-50/50 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
@@ -71,14 +72,14 @@ const StorySection = () => {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1.5 }}
-          className="absolute -right-1/3 top-1/4 w-2/3 h-2/3 bg-gradient-to-br from-aerons-copper/5 to-transparent rounded-full blur-3xl"
+          className="absolute -right-1/3 top-1/4 w-2/3 h-2/3 bg-gradient-to-br from-audiolights-copper/5 to-transparent rounded-full blur-3xl"
         />
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1.5, delay: 0.2 }}
-          className="absolute -left-1/3 bottom-1/4 w-2/3 h-2/3 bg-gradient-to-tr from-aerons-200/5 to-transparent rounded-full blur-3xl"
+          className="absolute -left-1/3 bottom-1/4 w-2/3 h-2/3 bg-gradient-to-tr from-audiolights-200/5 to-transparent rounded-full blur-3xl"
         />
       </div>
 
@@ -91,9 +92,9 @@ const StorySection = () => {
           className="text-center mb-24"
         >
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight">
-            Our <span className="text-aerons-copper">Story</span>
+            Our <span className="text-audiolights-copper">Story</span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-aerons-copper to-aerons-copper/50 mx-auto rounded-full" />
+          <div className="w-24 h-1 bg-gradient-to-r from-audiolights-copper to-audiolights-copper/50 mx-auto rounded-full" />
         </motion.div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 xl:gap-24 max-w-7xl mx-auto">
@@ -104,9 +105,9 @@ const StorySection = () => {
             transition={{ duration: 0.8 }}
           >
             <h3 className="text-2xl md:text-3xl font-bold mb-8 tracking-tight">A Legacy of Excellence</h3>
-            <div className="space-y-6 text-aerons-700/90 text-lg">
+            <div className="space-y-6 text-audiolights-700/90 text-lg">
               <p className="leading-relaxed">
-                Since 1962, Aerons India Exim Pvt. Ltd. has been at the forefront of India's professional audio industry. What began as a manufacturing venture has transformed into a comprehensive trading, export, import, and distribution powerhouse.
+                Since 1962, Audio&Lights India Exim Pvt. Ltd. has been at the forefront of India's professional audio industry. What began as a manufacturing venture has transformed into a comprehensive trading, export, import, and distribution powerhouse.
               </p>
               <p className="leading-relaxed">
                 Our journey has been driven by a relentless pursuit of excellence and a deep understanding of sound engineering. Today, we stand as a trusted name across India, known for our expertise, reliability, and the quality of our solutions.
@@ -122,7 +123,7 @@ const StorySection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="bg-white/50 backdrop-blur-sm rounded-2xl p-8 md:p-12 shadow-xl border border-aerons-200/20"
+            className="bg-white/50 backdrop-blur-sm rounded-2xl p-8 md:p-12 shadow-xl border border-audiolights-200/20"
           >
             <h3 className="text-2xl md:text-3xl font-bold mb-12 tracking-tight">Our Timeline</h3>
             <div className="space-y-8">

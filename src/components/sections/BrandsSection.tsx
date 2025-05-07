@@ -1,4 +1,3 @@
-
 import React, { useRef, useState } from 'react';
 import ScrollReveal from '../ScrollReveal';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
@@ -8,13 +7,13 @@ const BrandsSection = () => {
   
   const brands = [
     {
-      id: "aerons",
-      name: "Aerons",
+      id: "audiolights",
+      name: "Audio&Lights",
       description: "Our own legacy brand offering reliable professional audio solutions.",
       year: "Since 1962",
       highlight: "Own Brand",
-      logo: "https://placehold.co/400x200/e2e8f0/1e293b?text=AERONS",
-      detailedDescription: "Aerons is our flagship brand, established in 1962, delivering trusted audio solutions across Central India for over six decades. As our own brand, we ensure premium quality and reliable products that meet the highest standards of sound excellence."
+      logo: "https://placehold.co/400x200/e2e8f0/1e293b?text=AUDIO%26LIGHTS",
+      detailedDescription: "Audio&Lights is our flagship brand, established in 1962, delivering trusted audio solutions across Central India for over six decades. As our own brand, we ensure premium quality and reliable products that meet the highest standards of sound excellence."
     },
     {
       id: "ahuja",

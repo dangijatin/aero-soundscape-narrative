@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import ScrollReveal from '../ScrollReveal';
 import { Facebook, Instagram, Mail, MapPin, Phone } from 'lucide-react';
@@ -12,25 +11,25 @@ const ContactSection = () => {
       name: "New Delhi - Headquarters",
       address: "audio&lights Ltd., New Delhi, India",
       phone: "+91 1234567890",
-      email: "info@aeronsindia.com"
+      email: "info@audiolights.com"
     },
     ahmedabad: {
       name: "Ahmedabad",
       address: "Demo Room & Warehouse, Ahmedabad, Gujarat",
       phone: "+91 9876543210",
-      email: "ahmedabad@aeronsindia.com"
+      email: "ahmedabad@audiolights.com"
     },
     bhopal: {
       name: "Bhopal",
       address: "Regional Office, Bhopal, Madhya Pradesh",
       phone: "+91 8765432109",
-      email: "bhopal@aeronsindia.com"
+      email: "bhopal@audiolights.com"
     },
     raipur: {
       name: "Raipur",
       address: "Regional Office, Raipur, Chhattisgarh",
       phone: "+91 7654321098",
-      email: "raipur@aeronsindia.com"
+      email: "raipur@audiolights.com"
     }
   };
 
@@ -146,7 +145,7 @@ const ContactSection = () => {
                 <Mail className="text-amber-500 flex-shrink-0 mt-1" />
                 <div>
                   <h4 className="font-medium mb-1">Email</h4>
-                  <p className="text-navy-600">info@aeronsindia.com</p>
+                  <p className="text-navy-600">info@audiolights.com</p>
                 </div>
               </div>
             </div>

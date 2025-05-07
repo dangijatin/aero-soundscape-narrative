@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import ScrollReveal from '../ScrollReveal';
@@ -8,7 +9,7 @@ const HeroSection = () => {
   return (
     <section id="hero" className="relative overflow-hidden bg-black text-white">
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-aerons-950/70 via-aerons-950/80 to-aerons-950/95 z-10"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-audiolights-950/70 via-audiolights-950/80 to-audiolights-950/95 z-10"></div>
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?q=80&w=2070')] bg-cover bg-center bg-fixed opacity-40"></div>
       </div>
 
@@ -22,7 +23,7 @@ const HeroSection = () => {
             repeat: Infinity,
             ease: "easeInOut"
           }}
-          className="absolute -right-1/4 top-1/4 w-1/2 h-1/2 bg-aerons-copper/10 rounded-full blur-3xl"
+          className="absolute -right-1/4 top-1/4 w-1/2 h-1/2 bg-audiolights-copper/10 rounded-full blur-3xl"
         />
         <motion.div
           animate={{
@@ -33,7 +34,7 @@ const HeroSection = () => {
             repeat: Infinity,
             ease: "easeInOut"
           }}
-          className="absolute -left-1/4 bottom-1/4 w-1/2 h-1/2 bg-aerons-200/10 rounded-full blur-3xl"
+          className="absolute -left-1/4 bottom-1/4 w-1/2 h-1/2 bg-audiolights-200/10 rounded-full blur-3xl"
         />
       </div>
 
@@ -47,12 +48,12 @@ const HeroSection = () => {
           }}
           className="max-w-5xl text-center mt-12"
         >
-          <h1 className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-6 tracking-tight bg-gradient-to-r from-white via-white/90 to-aerons-copper bg-clip-text text-transparent">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-6 tracking-tight bg-gradient-to-r from-white via-white/90 to-audiolights-copper bg-clip-text text-transparent">
             Your Trusted Audio Technology Partner in India
           </h1>
           
           <ScrollReveal delay={2}>
-            <p className="text-xl md:text-2xl lg:text-3xl text-aerons-200 max-w-3xl mx-auto my-8 font-light">
+            <p className="text-xl md:text-2xl lg:text-3xl text-audiolights-200 max-w-3xl mx-auto my-8 font-light">
               Designing, Innovating, and Equipping the Future of Sound
             </p>
           </ScrollReveal>
@@ -67,7 +68,7 @@ const HeroSection = () => {
             <motion.a 
               href="#expertise"
               whileHover={{ y: 5 }}
-              className="inline-flex flex-col items-center mt-12 text-sm uppercase tracking-wider font-medium text-white/80 hover:text-aerons-copper transition-colors duration-300"
+              className="inline-flex flex-col items-center mt-12 text-sm uppercase tracking-wider font-medium text-white/80 hover:text-audiolights-copper transition-colors duration-300"
             >
               Explore Our Solutions
               <div className="mt-4 animate-bounce opacity-75">↓</div>

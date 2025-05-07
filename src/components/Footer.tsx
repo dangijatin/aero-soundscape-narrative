@@ -55,7 +55,7 @@ const Footer = () => {
                 Phone: +91 1234567890
               </li>
               <li className="text-navy-300">
-                Email: info@aeronsindia.com
+                Email: info@audiolights.com
               </li>
             </ul>
           </div>

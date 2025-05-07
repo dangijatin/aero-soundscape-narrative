@@ -30,13 +30,13 @@ const ExpertiseSection = () => {
   return (
     <ParallaxSection 
       id="expertise" 
-      className="scroll-section py-24 bg-aerons-900 text-white"
+      className="scroll-section py-24 bg-audiolights-900 text-white"
       backgroundImage="https://images.unsplash.com/photo-1505489304219-85ce67a3d00e?q=80&w=2071"
     >
       <div className="container mx-auto px-4 relative z-10">
         <ScrollReveal>
           <h2 className="text-3xl md:text-5xl font-bold text-center mb-16">
-            Our <span className="text-aerons-copper">Expertise</span>
+            Our <span className="text-audiolights-copper">Expertise</span>
           </h2>
         </ScrollReveal>
         
@@ -52,7 +52,7 @@ const ExpertiseSection = () => {
                 />
                 <div className="absolute inset-0 flex flex-col justify-end p-6">
                   <h3 className="text-2xl font-bold mb-2">{area.title}</h3>
-                  <p className="text-aerons-100">{area.description}</p>
+                  <p className="text-audiolights-100">{area.description}</p>
                 </div>
               </div>
             </ScrollReveal>
@@ -61,7 +61,7 @@ const ExpertiseSection = () => {
         
         <ScrollReveal delay={5}>
           <div className="text-center mt-16">
-            <p className="text-lg text-aerons-200 inline-block border-b-2 border-aerons-copper pb-1">
+            <p className="text-lg text-audiolights-200 inline-block border-b-2 border-audiolights-copper pb-1">
               And much more...
             </p>
           </div>
