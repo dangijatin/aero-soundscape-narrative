@@ -3,7 +3,7 @@ import { Config } from "tailwindcss";
 import { fontFamily } from "tailwindcss/defaultTheme";
 import plugin from "tailwindcss/plugin";
 import svgToDataUri from "mini-svg-data-uri";
-import { colors } from "tailwindcss/colors";
+import colors from "tailwindcss/colors";
 
 export default {
   darkMode: ["class"],
@@ -78,6 +78,7 @@ export default {
           800: "#1E293B",
           900: "#0F172A",
         },
+        // Make amber color available
         amber: colors.amber,
       },
       borderRadius: {
