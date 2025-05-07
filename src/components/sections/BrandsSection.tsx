@@ -1,69 +1,97 @@
 
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import ScrollReveal from '../ScrollReveal';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 
 const BrandsSection = () => {
+  const [selectedBrand, setSelectedBrand] = useState<string | null>(null);
+  
   const brands = [
     {
+      id: "aerons",
       name: "Aerons",
       description: "Our own legacy brand offering reliable professional audio solutions.",
       year: "Since 1962",
       highlight: "Own Brand",
-      logo: "https://placehold.co/400x200/e2e8f0/1e293b?text=AERONS"
+      logo: "https://placehold.co/400x200/e2e8f0/1e293b?text=AERONS",
+      detailedDescription: "Aerons is our flagship brand, established in 1962, delivering trusted audio solutions across Central India for over six decades. As our own brand, we ensure premium quality and reliable products that meet the highest standards of sound excellence."
     },
     {
+      id: "ahuja",
       name: "Ahuja Radios",
       description: "India's leading PA brand with over 80 years legacy in sound reinforcement.",
       year: "Est. 1940",
       highlight: "Legacy Brand",
-      logo: "https://placehold.co/400x200/e2e8f0/1e293b?text=AHUJA"
+      logo: "https://placehold.co/400x200/e2e8f0/1e293b?text=AHUJA",
+      detailedDescription: "AHUJA RADIOS is today India's leading manufacturer & exporter of Public Address Equipment. Established in 1940, in last 8 decades we have been able to cement AHUJA as the most trusted brand in sound reinforcement industry by introducing reliable products through continuous research & development. Right since the inception company has aspired and worked diligently towards offering wide range of products to fulfill every conceivable PA application requirement."
     },
     {
+      id: "studiomaster",
       name: "Studiomaster Professional",
       description: "Premium Pro Audio solutions for DJ, education, religious, and corporate sectors.",
       year: "Est. 1994",
       highlight: "Make in India",
-      logo: "https://placehold.co/400x200/e2e8f0/1e293b?text=STUDIOMASTER"
+      logo: "https://placehold.co/400x200/e2e8f0/1e293b?text=STUDIOMASTER",
+      detailedDescription: "Studiomaster Professional, a brand under Audioplus and part of the Ahuja Radios legacy, is a leading Indian manufacturer of professional audio equipment. Since 1994, we've delivered reliable, high-quality solutions tailored to the Indian market—including mixers, amplifiers, speakers, microphones, DJ gear, and more. With cutting-edge manufacturing near Mumbai, a strong R&D team, and nationwide service support, we're trusted across education, corporate, religious, and entertainment sectors."
     },
     {
+      id: "audiocenter",
       name: "Audiocenter",
       description: "Full portfolio distribution as exclusive national partner.",
       year: "Partnership Est. 2022",
       highlight: "Exclusive Distribution",
-      logo: "https://placehold.co/400x200/e2e8f0/1e293b?text=AUDIOCENTER"
+      logo: "https://placehold.co/400x200/e2e8f0/1e293b?text=AUDIOCENTER",
+      detailedDescription: "As the exclusive national partner for Audiocenter in India, we offer their complete portfolio of premium audio solutions. This partnership, established in 2022, allows us to bring cutting-edge international technology to the Indian market with full local support and expertise."
     },
     {
+      id: "faitalpro",
       name: "FaitalPRO",
       description: "Italian high-quality loudspeakers and drivers.",
       year: "Exclusive Distribution",
       highlight: "Italian Quality",
-      logo: "https://placehold.co/400x200/e2e8f0/1e293b?text=FAITALPRO"
+      logo: "https://placehold.co/400x200/e2e8f0/1e293b?text=FAITALPRO",
+      detailedDescription: "FaitalPRO represents the pinnacle of Italian audio engineering excellence. As their exclusive distributor in India, we provide their renowned high-quality loudspeakers and drivers to professionals who demand superior sound reproduction and reliability. Each product embodies Italian craftsmanship and attention to detail."
     },
     {
+      id: "fidek",
       name: "Fidek",
       description: "Specialized audio solutions for various applications.",
       year: "Distributed Brand",
       highlight: "Specialized Solutions",
-      logo: "https://placehold.co/400x200/e2e8f0/1e293b?text=FIDEK"
+      logo: "https://placehold.co/400x200/e2e8f0/1e293b?text=FIDEK",
+      detailedDescription: "Fidek offers specialized audio solutions designed for specific applications where standard equipment won't suffice. Their innovative approach to solving unique audio challenges makes them an essential part of our portfolio for clients with specialized requirements."
     }
   ];
 
   const otherBrands = ["Behringer", "DJ Tech", "Ciare"];
   const brandsRef = useRef<HTMLDivElement>(null);
 
+  const handleOpenBrandDetails = (id: string) => {
+    setSelectedBrand(id);
+  };
+
+  const handleCloseBrandDetails = () => {
+    setSelectedBrand(null);
+  };
+
+  const selectedBrandData = brands.find(brand => brand.id === selectedBrand);
+
   return (
     <section id="brands" className="scroll-section py-24 bg-white">
       <div className="container mx-auto px-4">
         <ScrollReveal>
           <h2 className="text-3xl md:text-5xl font-bold text-center mb-16">
-            Our <span className="text-aerons-copper">Brands</span>
+            Our <span className="text-amber-500">Brands</span>
           </h2>
         </ScrollReveal>
         
         <div ref={brandsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {brands.map((brand, index) => (
             <ScrollReveal key={brand.name} delay={(index % 5) + 1 as 1 | 2 | 3 | 4 | 5}>
-              <div className="bg-white border border-aerons-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 group">
+              <div 
+                className="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 group cursor-pointer"
+                onClick={() => handleOpenBrandDetails(brand.id)}
+              >
                 <div className="p-6 flex flex-col h-full">
                   <div className="mb-4 overflow-hidden rounded">
                     <img 
@@ -74,15 +102,16 @@ const BrandsSection = () => {
                   </div>
                   <div className="flex justify-between items-start mb-3">
                     <h3 className="text-xl font-bold">{brand.name}</h3>
-                    <span className="text-xs bg-aerons-100 text-aerons-600 px-2 py-1 rounded">
+                    <span className="text-xs bg-gray-100 text-navy-600 px-2 py-1 rounded">
                       {brand.year}
                     </span>
                   </div>
-                  <p className="text-aerons-600 mb-4 flex-grow">{brand.description}</p>
-                  <div className="mt-auto">
-                    <span className="inline-block text-xs font-medium text-aerons-copper border border-aerons-copper px-2 py-1 rounded">
+                  <p className="text-navy-600 mb-4 flex-grow">{brand.description}</p>
+                  <div className="mt-auto flex justify-between items-center">
+                    <span className="inline-block text-xs font-medium text-amber-500 border border-amber-500 px-2 py-1 rounded">
                       {brand.highlight}
                     </span>
+                    <span className="text-sm text-navy-600 hover:text-amber-500">Learn more →</span>
                   </div>
                 </div>
               </div>
@@ -97,7 +126,7 @@ const BrandsSection = () => {
               {otherBrands.map(brand => (
                 <span 
                   key={brand}
-                  className="bg-aerons-100 text-aerons-700 px-4 py-2 rounded-full"
+                  className="bg-gray-100 text-navy-700 px-4 py-2 rounded-full"
                 >
                   {brand}
                 </span>
@@ -106,6 +135,50 @@ const BrandsSection = () => {
           </div>
         </ScrollReveal>
       </div>
+
+      {/* Brand Detail Dialog */}
+      <Dialog open={!!selectedBrand} onOpenChange={handleCloseBrandDetails}>
+        <DialogContent className="sm:max-w-[600px]">
+          <DialogHeader>
+            <DialogTitle className="text-2xl font-bold flex items-center gap-2">
+              <img 
+                src={selectedBrandData?.logo} 
+                alt={selectedBrandData?.name} 
+                className="h-10 w-auto" 
+              />
+              {selectedBrandData?.name}
+            </DialogTitle>
+            <DialogDescription className="text-base text-navy-700 mt-4">
+              <span className="inline-block bg-amber-100 text-amber-700 px-2 py-1 rounded text-sm mb-4">{selectedBrandData?.year}</span>
+              <p className="mb-4 leading-relaxed">{selectedBrandData?.detailedDescription}</p>
+              {selectedBrandData?.id === "ahuja" && (
+                <div className="mt-4 pt-4 border-t border-gray-200">
+                  <h4 className="font-medium mb-2">Products Include:</h4>
+                  <ul className="list-disc list-inside space-y-1 text-sm text-navy-600">
+                    <li>Public Address Systems</li>
+                    <li>Commercial Sound Systems</li>
+                    <li>Professional Audio Equipment</li>
+                    <li>Mixer Amplifiers & Power Amplifiers</li>
+                    <li>Microphones & Conference Systems</li>
+                  </ul>
+                </div>
+              )}
+              {selectedBrandData?.id === "studiomaster" && (
+                <div className="mt-4 pt-4 border-t border-gray-200">
+                  <h4 className="font-medium mb-2">Sectors Served:</h4>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="px-3 py-1 bg-gray-100 rounded-full text-sm">Education</span>
+                    <span className="px-3 py-1 bg-gray-100 rounded-full text-sm">Corporate</span>
+                    <span className="px-3 py-1 bg-gray-100 rounded-full text-sm">Religious</span>
+                    <span className="px-3 py-1 bg-gray-100 rounded-full text-sm">DJ & Entertainment</span>
+                    <span className="px-3 py-1 bg-gray-100 rounded-full text-sm">Broadcasting</span>
+                  </div>
+                </div>
+              )}
+            </DialogDescription>
+          </DialogHeader>
+        </DialogContent>
+      </Dialog>
     </section>
   );
 };

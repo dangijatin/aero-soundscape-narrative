@@ -1,31 +1,133 @@
-import React from 'react';
+
+import React, { useState } from 'react';
 import ScrollReveal from '../ScrollReveal';
 import { Facebook, Instagram, Mail, MapPin, Phone } from 'lucide-react';
+import AudioVisualizer from '../AudioVisualizer';
 
 const ContactSection = () => {
+  const [activeLocation, setActiveLocation] = useState('delhi');
+
+  const locations = {
+    delhi: {
+      name: "New Delhi - Headquarters",
+      address: "audio&lights Ltd., New Delhi, India",
+      phone: "+91 1234567890",
+      email: "info@aeronsindia.com"
+    },
+    ahmedabad: {
+      name: "Ahmedabad",
+      address: "Demo Room & Warehouse, Ahmedabad, Gujarat",
+      phone: "+91 9876543210",
+      email: "ahmedabad@aeronsindia.com"
+    },
+    bhopal: {
+      name: "Bhopal",
+      address: "Regional Office, Bhopal, Madhya Pradesh",
+      phone: "+91 8765432109",
+      email: "bhopal@aeronsindia.com"
+    },
+    raipur: {
+      name: "Raipur",
+      address: "Regional Office, Raipur, Chhattisgarh",
+      phone: "+91 7654321098",
+      email: "raipur@aeronsindia.com"
+    }
+  };
+
   return (
     <section id="contact" className="scroll-section py-24 bg-white">
       <div className="container mx-auto px-4">
         <ScrollReveal>
           <h2 className="text-3xl md:text-5xl font-bold text-center mb-16">
-            Contact <span className="text-aerons-copper">Us</span>
+            Contact <span className="text-amber-500">Us</span>
           </h2>
+        </ScrollReveal>
+        
+        {/* Office Locations */}
+        <ScrollReveal>
+          <div className="max-w-5xl mx-auto mb-16">
+            <h3 className="text-2xl font-bold mb-6 text-center">Our Offices</h3>
+            
+            <div className="flex flex-wrap justify-center gap-4 mb-8">
+              {Object.entries(locations).map(([key, location]) => (
+                <button
+                  key={key}
+                  className={`px-4 py-2 rounded-full transition-colors ${
+                    activeLocation === key 
+                      ? 'bg-navy-600 text-white' 
+                      : 'bg-gray-100 hover:bg-gray-200 text-navy-800'
+                  }`}
+                  onClick={() => setActiveLocation(key)}
+                >
+                  {location.name}
+                </button>
+              ))}
+            </div>
+            
+            <div className="bg-gray-50 p-6 rounded-lg shadow-sm">
+              <div className="flex flex-col md:flex-row md:items-start gap-6">
+                <div className="md:w-1/3">
+                  <AudioVisualizer barCount={5} className="mb-4 h-10" />
+                  <h4 className="text-xl font-semibold mb-2">{locations[activeLocation as keyof typeof locations].name}</h4>
+                  <div className="space-y-3">
+                    <div className="flex items-start space-x-3">
+                      <MapPin className="text-amber-500 flex-shrink-0 mt-1" size={18} />
+                      <p className="text-navy-700">
+                        {locations[activeLocation as keyof typeof locations].address}
+                      </p>
+                    </div>
+                    
+                    <div className="flex items-center space-x-3">
+                      <Phone className="text-amber-500 flex-shrink-0" size={18} />
+                      <p className="text-navy-700">
+                        {locations[activeLocation as keyof typeof locations].phone}
+                      </p>
+                    </div>
+                    
+                    <div className="flex items-center space-x-3">
+                      <Mail className="text-amber-500 flex-shrink-0" size={18} />
+                      <p className="text-navy-700">
+                        {locations[activeLocation as keyof typeof locations].email}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="md:w-2/3 h-64 rounded-lg overflow-hidden">
+                  {/* We'll add a placeholder map here - in a real implementation, you would use Google Maps or another mapping service */}
+                  <div className="w-full h-full bg-gray-200 rounded-lg flex items-center justify-center relative overflow-hidden">
+                    <img 
+                      src="https://maps.googleapis.com/maps/api/staticmap?center=India&zoom=5&size=600x400&maptype=roadmap&markers=color:red%7Clabel:D%7CNew+Delhi,India&markers=color:blue%7Clabel:A%7CAhmedabad,India&markers=color:blue%7Clabel:B%7CBhopal,India&markers=color:blue%7Clabel:R%7CRaipur,India&key=YOUR_API_KEY" 
+                      alt="Office Locations Map"
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 flex items-center justify-center bg-navy-900/20 text-white">
+                      <div className="text-center p-4 bg-navy-800/80 rounded-lg">
+                        <p className="font-medium">Interactive Map</p>
+                        <p className="text-sm">Please enable API key for live map</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </ScrollReveal>
         
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
         <ScrollReveal direction="left">
           <div>
             <h3 className="text-2xl font-bold mb-6">Get In Touch</h3>
-            <p className="text-aerons-700 leading-relaxed mb-8">
+            <p className="text-navy-700 leading-relaxed mb-8">
               Whether you're interested in our audio solutions, looking for a local dealer, or want to discuss a custom installation, we're here to help. Reach out to our headquarters or connect with us on social media.
             </p>
             
             <div className="space-y-6">
               <div className="flex items-start space-x-4">
-                <MapPin className="text-aerons-copper flex-shrink-0 mt-1" />
+                <MapPin className="text-amber-500 flex-shrink-0 mt-1" />
                 <div>
                   <h4 className="font-medium mb-1">Headquarters</h4>
-                  <p className="text-aerons-600">
+                  <p className="text-navy-600">
                     audio&lights<br />
                     New Delhi, India
                   </p>
@@ -33,18 +135,18 @@ const ContactSection = () => {
               </div>
               
               <div className="flex items-start space-x-4">
-                <Phone className="text-aerons-copper flex-shrink-0 mt-1" />
+                <Phone className="text-amber-500 flex-shrink-0 mt-1" />
                 <div>
                   <h4 className="font-medium mb-1">Phone</h4>
-                  <p className="text-aerons-600">+91 1234567890</p>
+                  <p className="text-navy-600">+91 1234567890</p>
                 </div>
               </div>
               
               <div className="flex items-start space-x-4">
-                <Mail className="text-aerons-copper flex-shrink-0 mt-1" />
+                <Mail className="text-amber-500 flex-shrink-0 mt-1" />
                 <div>
                   <h4 className="font-medium mb-1">Email</h4>
-                  <p className="text-aerons-600">info@aeronsindia.com</p>
+                  <p className="text-navy-600">info@aeronsindia.com</p>
                 </div>
               </div>
             </div>
@@ -52,39 +154,39 @@ const ContactSection = () => {
         </ScrollReveal>
         
         <ScrollReveal direction="right">
-          <div className="bg-aerons-50 p-8 rounded-lg">
+          <div className="bg-gray-50 p-8 rounded-lg">
             <h3 className="text-xl font-bold mb-6">Send Us a Message</h3>
             
             <form className="space-y-4">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-aerons-700 mb-1">
+                <label htmlFor="name" className="block text-sm font-medium text-navy-700 mb-1">
                   Name
                 </label>
                 <input
                   type="text"
                   id="name"
-                  className="w-full px-4 py-2 border border-aerons-300 rounded-md focus:outline-none focus:ring-1 focus:ring-aerons-copper"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-amber-500"
                 />
               </div>
               
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-aerons-700 mb-1">
+                <label htmlFor="email" className="block text-sm font-medium text-navy-700 mb-1">
                   Email
                 </label>
                 <input
                   type="email"
                   id="email"
-                  className="w-full px-4 py-2 border border-aerons-300 rounded-md focus:outline-none focus:ring-1 focus:ring-aerons-copper"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-amber-500"
                 />
               </div>
               
               <div>
-                <label htmlFor="subject" className="block text-sm font-medium text-aerons-700 mb-1">
+                <label htmlFor="subject" className="block text-sm font-medium text-navy-700 mb-1">
                   Subject
                 </label>
                 <select
                   id="subject"
-                  className="w-full px-4 py-2 border border-aerons-300 rounded-md focus:outline-none focus:ring-1 focus:ring-aerons-copper"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-amber-500"
                 >
                   <option>Product Inquiry</option>
                   <option>Installation Services</option>
@@ -95,13 +197,13 @@ const ContactSection = () => {
               </div>
               
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-aerons-700 mb-1">
+                <label htmlFor="message" className="block text-sm font-medium text-navy-700 mb-1">
                   Message
                 </label>
                 <textarea
                   id="message"
                   rows={4}
-                  className="w-full px-4 py-2 border border-aerons-300 rounded-md focus:outline-none focus:ring-1 focus:ring-aerons-copper"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-amber-500"
                 ></textarea>
               </div>
               
@@ -117,10 +219,10 @@ const ContactSection = () => {
           <div className="mt-16 text-center">
             <h3 className="text-xl font-semibold mb-6">Connect With Us</h3>
             <div className="flex justify-center space-x-6">
-              <a href="#" className="text-aerons-700 hover:text-aerons-copper transition-colors duration-200">
+              <a href="#" className="text-navy-700 hover:text-amber-500 transition-colors duration-200">
                 <Facebook size={28} />
               </a>
-              <a href="#" className="text-aerons-700 hover:text-aerons-copper transition-colors duration-200">
+              <a href="#" className="text-navy-700 hover:text-amber-500 transition-colors duration-200">
                 <Instagram size={28} />
               </a>
               <a href="#" className="flex items-center gap-2 bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700 transition-colors duration-200">
