@@ -5,31 +5,25 @@ import { Facebook, Instagram, Mail, MapPin, Phone } from 'lucide-react';
 import AudioVisualizer from '../AudioVisualizer';
 
 const ContactSection = () => {
-  const [activeLocation, setActiveLocation] = useState('delhi');
+  const [activeLocation, setActiveLocation] = useState('ahmedabad');
 
   const locations = {
-    delhi: {
-      name: "New Delhi - Headquarters",
-      address: "audio&lights Ltd., New Delhi, India",
-      phone: "+91 1234567890",
-      email: "info@audiolights.com"
-    },
     ahmedabad: {
-      name: "Ahmedabad",
-      address: "Demo Room & Warehouse, Ahmedabad, Gujarat",
-      phone: "+91 9876543210",
-      email: "ahmedabad@audiolights.com"
+      name: "Ahmedabad - Headquarters",
+      address: "OPP. CALICO DOME, RELIEF ROAD,\nNEAR RAILWAY STATION\nAHMEDABAD 380001",
+      phone: "+91 79 22146 0",
+      email: "info@audiolights.com"
     },
     bhopal: {
       name: "Bhopal",
-      address: "Regional Office, Bhopal, Madhya Pradesh",
-      phone: "+91 8765432109",
+      address: "62. CHAITANYA MARKET, HAMIDIA ROAD\nOPP. NADIRA BUS STAND\nBHOPAL 462016",
+      phone: "+91 755 2741 660",
       email: "bhopal@audiolights.com"
     },
     raipur: {
       name: "Raipur",
-      address: "Regional Office, Raipur, Chhattisgarh",
-      phone: "+91 7654321098",
+      address: "SHOP F2/F3, 1ST FLOOR GK TOWER\nNEAR MANJU MAMTA, MG ROAD\nRAIPUR 492001",
+      phone: "+91 771 4221 001",
       email: "raipur@audiolights.com"
     }
   };
@@ -72,7 +66,7 @@ const ContactSection = () => {
                   <div className="space-y-3">
                     <div className="flex items-start space-x-3">
                       <MapPin className="text-amber-500 flex-shrink-0 mt-1" size={18} />
-                      <p className="text-navy-700">
+                      <p className="text-navy-700 whitespace-pre-line">
                         {locations[activeLocation as keyof typeof locations].address}
                       </p>
                     </div>
@@ -97,7 +91,7 @@ const ContactSection = () => {
                   {/* We'll add a placeholder map here - in a real implementation, you would use Google Maps or another mapping service */}
                   <div className="w-full h-full bg-gray-200 rounded-lg flex items-center justify-center relative overflow-hidden">
                     <img 
-                      src="https://maps.googleapis.com/maps/api/staticmap?center=India&zoom=5&size=600x400&maptype=roadmap&markers=color:red%7Clabel:D%7CNew+Delhi,India&markers=color:blue%7Clabel:A%7CAhmedabad,India&markers=color:blue%7Clabel:B%7CBhopal,India&markers=color:blue%7Clabel:R%7CRaipur,India&key=YOUR_API_KEY" 
+                      src="https://maps.googleapis.com/maps/api/staticmap?center=India&zoom=5&size=600x400&maptype=roadmap&markers=color:red%7Clabel:A%7CAhmedabad,India&markers=color:blue%7Clabel:B%7CBhopal,India&markers=color:blue%7Clabel:R%7CRaipur,India&key=YOUR_API_KEY" 
                       alt="Office Locations Map"
                       className="w-full h-full object-cover"
                     />
@@ -127,9 +121,11 @@ const ContactSection = () => {
                 <MapPin className="text-amber-500 flex-shrink-0 mt-1" />
                 <div>
                   <h4 className="font-medium mb-1">Headquarters</h4>
-                  <p className="text-navy-600">
+                  <p className="text-navy-600 whitespace-pre-line">
                     audio&lights<br />
-                    New Delhi, India
+                    OPP. CALICO DOME, RELIEF ROAD,<br />
+                    NEAR RAILWAY STATION<br />
+                    AHMEDABAD 380001
                   </p>
                 </div>
               </div>
@@ -138,7 +134,7 @@ const ContactSection = () => {
                 <Phone className="text-amber-500 flex-shrink-0 mt-1" />
                 <div>
                   <h4 className="font-medium mb-1">Phone</h4>
-                  <p className="text-navy-600">+91 1234567890</p>
+                  <p className="text-navy-600">+91 79 22146 0</p>
                 </div>
               </div>
               

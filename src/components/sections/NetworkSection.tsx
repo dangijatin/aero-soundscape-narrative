@@ -57,7 +57,7 @@ const NetworkSection = () => {
               <h3 className="text-2xl md:text-3xl font-bold mb-8 tracking-tight">Pan-India Reach</h3>
               <div className="space-y-6 text-audiolights-200/90">
                 <p className="leading-relaxed text-lg">
-                  With our headquarters in New Delhi, we extend our services across India through an extensive dealer and service network. Our presence spans multiple states, ensuring that quality audio solutions are accessible throughout the country.
+                  With our headquarters in Ahmedabad, we extend our services across India through an extensive dealer and service network. Our presence spans multiple states, ensuring that quality audio solutions are accessible throughout the country.
                 </p>
                 <p className="leading-relaxed text-lg">
                   Our dealer network is strategically positioned to provide prompt service and support, bringing our expertise and products closer to our customers regardless of their location.
@@ -155,10 +155,10 @@ const NetworkSection = () => {
                   </motion.g>
                 ))}
 
-                {/* Delhi HQ marker */}
+                {/* Ahmedabad HQ marker */}
                 <motion.circle
-                  cx="200"
-                  cy="180"
+                  cx="135"
+                  cy="280"
                   r="8"
                   fill="#B87333"
                   stroke="#E2E8F0"
@@ -174,15 +174,15 @@ const NetworkSection = () => {
                   }}
                 />
                 <text
-                  x="200"
-                  y="160"
+                  x="135"
+                  y="260"
                   textAnchor="middle"
                   fill="#E2E8F0"
                   fontSize="12"
                   fontWeight="bold"
                   className="drop-shadow-lg"
                 >
-                  New Delhi HQ
+                  Ahmedabad HQ
                 </text>
               </motion.svg>
               
@@ -193,7 +193,7 @@ const NetworkSection = () => {
                 className="mt-8 text-center"
               >
                 <p className="text-sm text-audiolights-300/90 bg-audiolights-800/30 py-3 px-6 rounded-full inline-block backdrop-blur-sm">
-                  Headquarters: New Delhi | Reach: Pan-India through Dealer Network
+                  Headquarters: Ahmedabad | Reach: Pan-India through Dealer Network
                 </p>
               </motion.div>
             </div>
