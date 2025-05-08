@@ -3,30 +3,36 @@ import React, { useState } from 'react';
 import ScrollReveal from '../ScrollReveal';
 import { Facebook, Instagram, Mail, MapPin, Phone } from 'lucide-react';
 import AudioVisualizer from '../AudioVisualizer';
+import LocationMap from '../LocationMap';
+import { Location } from '../LocationMap';
 
 const ContactSection = () => {
-  const [activeLocation, setActiveLocation] = useState('ahmedabad');
-
-  const locations = {
-    ahmedabad: {
-      name: "Ahmedabad - Headquarters",
+  const locations: Location[] = [
+    { 
+      name: "Ahmedabad", 
+      coordinates: [23.028591, 72.591699],
       address: "OPP. CALICO DOME, RELIEF ROAD,\nNEAR RAILWAY STATION\nAHMEDABAD 380001",
       phone: "+91 79 22146 0",
-      email: "info@audiolights.com"
+      email: "info@audiolights.com",
+      isHeadquarters: true
     },
-    bhopal: {
-      name: "Bhopal",
+    { 
+      name: "Bhopal", 
+      coordinates: [23.265009, 77.404002],
       address: "62. CHAITANYA MARKET, HAMIDIA ROAD\nOPP. NADIRA BUS STAND\nBHOPAL 462016",
       phone: "+91 755 2741 660",
       email: "bhopal@audiolights.com"
     },
-    raipur: {
-      name: "Raipur",
+    { 
+      name: "Raipur", 
+      coordinates: [21.244232, 81.634032],
       address: "SHOP F2/F3, 1ST FLOOR GK TOWER\nNEAR MANJU MAMTA, MG ROAD\nRAIPUR 492001",
       phone: "+91 771 4221 001",
       email: "raipur@audiolights.com"
     }
-  };
+  ];
+
+  const [activeLocation, setActiveLocation] = useState('ahmedabad');
 
   return (
     <section id="contact" className="scroll-section py-24 bg-white">
@@ -43,17 +49,17 @@ const ContactSection = () => {
             <h3 className="text-2xl font-bold mb-6 text-center">Our Offices</h3>
             
             <div className="flex flex-wrap justify-center gap-4 mb-8">
-              {Object.entries(locations).map(([key, location]) => (
+              {locations.map((location) => (
                 <button
-                  key={key}
+                  key={location.name}
                   className={`px-4 py-2 rounded-full transition-colors ${
-                    activeLocation === key 
+                    activeLocation === location.name.toLowerCase() 
                       ? 'bg-navy-600 text-white' 
                       : 'bg-gray-100 hover:bg-gray-200 text-navy-800'
                   }`}
-                  onClick={() => setActiveLocation(key)}
+                  onClick={() => setActiveLocation(location.name.toLowerCase())}
                 >
-                  {location.name}
+                  {location.name} {location.isHeadquarters && "(HQ)"}
                 </button>
               ))}
             </div>
@@ -62,46 +68,42 @@ const ContactSection = () => {
               <div className="flex flex-col md:flex-row md:items-start gap-6">
                 <div className="md:w-1/3">
                   <AudioVisualizer barCount={5} className="mb-4 h-10" />
-                  <h4 className="text-xl font-semibold mb-2">{locations[activeLocation as keyof typeof locations].name}</h4>
+                  <h4 className="text-xl font-semibold mb-2">
+                    {locations.find(loc => loc.name.toLowerCase() === activeLocation)?.name || "Ahmedabad"}
+                    {locations.find(loc => loc.name.toLowerCase() === activeLocation)?.isHeadquarters && 
+                      <span className="ml-2 text-xs bg-amber-500 text-white px-2 py-0.5 rounded-full">Headquarters</span>}
+                  </h4>
                   <div className="space-y-3">
                     <div className="flex items-start space-x-3">
                       <MapPin className="text-amber-500 flex-shrink-0 mt-1" size={18} />
                       <p className="text-navy-700 whitespace-pre-line">
-                        {locations[activeLocation as keyof typeof locations].address}
+                        {locations.find(loc => loc.name.toLowerCase() === activeLocation)?.address || ""}
                       </p>
                     </div>
                     
                     <div className="flex items-center space-x-3">
                       <Phone className="text-amber-500 flex-shrink-0" size={18} />
                       <p className="text-navy-700">
-                        {locations[activeLocation as keyof typeof locations].phone}
+                        {locations.find(loc => loc.name.toLowerCase() === activeLocation)?.phone || ""}
                       </p>
                     </div>
                     
                     <div className="flex items-center space-x-3">
                       <Mail className="text-amber-500 flex-shrink-0" size={18} />
                       <p className="text-navy-700">
-                        {locations[activeLocation as keyof typeof locations].email}
+                        {locations.find(loc => loc.name.toLowerCase() === activeLocation)?.email || ""}
                       </p>
                     </div>
                   </div>
                 </div>
                 
                 <div className="md:w-2/3 h-64 rounded-lg overflow-hidden">
-                  {/* We'll add a placeholder map here - in a real implementation, you would use Google Maps or another mapping service */}
-                  <div className="w-full h-full bg-gray-200 rounded-lg flex items-center justify-center relative overflow-hidden">
-                    <img 
-                      src="https://maps.googleapis.com/maps/api/staticmap?center=India&zoom=5&size=600x400&maptype=roadmap&markers=color:red%7Clabel:A%7CAhmedabad,India&markers=color:blue%7Clabel:B%7CBhopal,India&markers=color:blue%7Clabel:R%7CRaipur,India&key=YOUR_API_KEY" 
-                      alt="Office Locations Map"
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 flex items-center justify-center bg-navy-900/20 text-white">
-                      <div className="text-center p-4 bg-navy-800/80 rounded-lg">
-                        <p className="font-medium">Interactive Map</p>
-                        <p className="text-sm">Please enable API key for live map</p>
-                      </div>
-                    </div>
-                  </div>
+                  <LocationMap 
+                    locations={locations} 
+                    activeLocation={locations.find(loc => loc.name.toLowerCase() === activeLocation)?.name}
+                    height="100%"
+                    className="rounded-lg shadow-md"
+                  />
                 </div>
               </div>
             </div>

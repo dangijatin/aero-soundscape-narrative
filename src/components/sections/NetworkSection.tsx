@@ -1,15 +1,35 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import LocationMap from '../LocationMap';
 
 const NetworkSection = () => {
-  const states = [
-    { name: "Ahmedabad", coordinates: { x: 135, y: 280 } },
-    { name: "Bhopal", coordinates: { x: 220, y: 250 } },
-    { name: "Raipur", coordinates: { x: 270, y: 270 } }
+  const locations = [
+    { 
+      name: "Ahmedabad", 
+      coordinates: [23.028591, 72.591699] as [number, number],
+      address: "OPP. CALICO DOME, RELIEF ROAD,\nNEAR RAILWAY STATION\nAHMEDABAD 380001",
+      phone: "+91 79 22146 0",
+      email: "info@audiolights.com",
+      isHeadquarters: true
+    },
+    { 
+      name: "Bhopal", 
+      coordinates: [23.265009, 77.404002] as [number, number],
+      address: "62. CHAITANYA MARKET, HAMIDIA ROAD\nOPP. NADIRA BUS STAND\nBHOPAL 462016",
+      phone: "+91 755 2741 660",
+      email: "bhopal@audiolights.com"
+    },
+    { 
+      name: "Raipur", 
+      coordinates: [21.244232, 81.634032] as [number, number],
+      address: "SHOP F2/F3, 1ST FLOOR GK TOWER\nNEAR MANJU MAMTA, MG ROAD\nRAIPUR 492001",
+      phone: "+91 771 4221 001",
+      email: "raipur@audiolights.com"
+    }
   ];
   
-  const [activeState, setActiveState] = useState<string | null>(null);
+  const [activeLocation, setActiveLocation] = useState<string>("Ahmedabad");
   
   return (
     <section id="network" className="scroll-section py-32 bg-gradient-to-b from-audiolights-900 to-audiolights-950 text-white relative overflow-hidden">
@@ -65,21 +85,20 @@ const NetworkSection = () => {
               </div>
               
               <div className="mt-12 space-y-6">
-                <h4 className="text-xl font-medium text-white/90">Key Regions:</h4>
+                <h4 className="text-xl font-medium text-white/90">Our Offices:</h4>
                 <div className="flex flex-wrap gap-3">
-                  {states.map(state => (
+                  {locations.map(location => (
                     <motion.button
-                      key={state.name}
+                      key={location.name}
                       whileHover={{ y: -2 }}
                       className={`px-6 py-3 rounded-full text-sm transition-all duration-200 ${
-                        activeState === state.name
+                        activeLocation === location.name
                           ? 'bg-gradient-to-r from-audiolights-copper to-audiolights-copper/80 text-white shadow-lg' 
                           : 'bg-audiolights-800/50 text-audiolights-200 hover:bg-audiolights-700/50 hover:text-white'
                       }`}
-                      onMouseEnter={() => setActiveState(state.name)}
-                      onMouseLeave={() => setActiveState(null)}
+                      onClick={() => setActiveLocation(location.name)}
                     >
-                      {state.name}
+                      {location.name} {location.isHeadquarters && "(HQ)"}
                     </motion.button>
                   ))}
                 </div>
@@ -92,110 +111,14 @@ const NetworkSection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
+            className="h-full"
           >
-            <div className="relative">
-              <motion.svg 
-                viewBox="0 0 400 500" 
-                className="w-full h-auto"
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 1 }}
-              >
-                {/* India map outline - simplified but recognizable */}
-                <motion.path
-                  d="M180,100 C200,80 240,70 260,80 C280,90 290,110 300,130 C310,150 320,180 330,200 C340,220 350,250 340,280 C330,310 310,340 290,370 C270,400 250,420 220,440 C190,460 150,470 120,460 C90,450 70,420 60,390 C50,360 40,320 50,290 C60,260 90,240 100,210 C110,180 100,150 110,120 C120,90 150,60 180,100 Z"
-                  fill="url(#map-gradient)"
-                  stroke="url(#map-stroke)"
-                  strokeWidth="2"
-                  initial={{ pathLength: 0 }}
-                  animate={{ pathLength: 1 }}
-                  transition={{ duration: 2, ease: "easeInOut" }}
-                />
-                
-                {/* Gradients */}
-                <defs>
-                  <linearGradient id="map-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#334155" />
-                    <stop offset="100%" stopColor="#1E293B" />
-                  </linearGradient>
-                  <linearGradient id="map-stroke" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#475569" />
-                    <stop offset="100%" stopColor="#B87333" />
-                  </linearGradient>
-                </defs>
-                
-                {/* State markers */}
-                {states.map((state) => (
-                  <motion.g key={state.name}>
-                    <motion.circle
-                      cx={state.coordinates.x}
-                      cy={state.coordinates.y}
-                      r={activeState === state.name ? 8 : 6}
-                      fill={activeState === state.name ? "#B87333" : "#475569"}
-                      stroke="#E2E8F0"
-                      strokeWidth="1"
-                      initial={{ scale: 0 }}
-                      animate={{ 
-                        scale: 1,
-                        opacity: activeState === state.name ? 0.8 : 0.6 
-                      }}
-                      transition={{ duration: 0.5 }}
-                    />
-                    <motion.text
-                      x={state.coordinates.x}
-                      y={state.coordinates.y - 15}
-                      textAnchor="middle"
-                      fill="#E2E8F0"
-                      fontSize="12"
-                      opacity={activeState === state.name ? 1 : 0}
-                      animate={{ opacity: activeState === state.name ? 1 : 0 }}
-                    >
-                      {state.name}
-                    </motion.text>
-                  </motion.g>
-                ))}
-
-                {/* Ahmedabad HQ marker */}
-                <motion.circle
-                  cx="135"
-                  cy="280"
-                  r="8"
-                  fill="#B87333"
-                  stroke="#E2E8F0"
-                  strokeWidth="2"
-                  animate={{
-                    scale: [1, 1.2, 1],
-                    opacity: [1, 0.8, 1]
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                  }}
-                />
-                <text
-                  x="135"
-                  y="260"
-                  textAnchor="middle"
-                  fill="#E2E8F0"
-                  fontSize="12"
-                  fontWeight="bold"
-                  className="drop-shadow-lg"
-                >
-                  Ahmedabad HQ
-                </text>
-              </motion.svg>
-              
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1 }}
-                className="mt-8 text-center"
-              >
-                <p className="text-sm text-audiolights-300/90 bg-audiolights-800/30 py-3 px-6 rounded-full inline-block backdrop-blur-sm">
-                  Headquarters: Ahmedabad | Reach: Pan-India through Dealer Network
-                </p>
-              </motion.div>
+            <div className="bg-audiolights-800/30 backdrop-blur-sm p-4 rounded-2xl border border-audiolights-700/30 h-full">
+              <LocationMap 
+                locations={locations} 
+                activeLocation={activeLocation} 
+                height="500px"
+              />
             </div>
           </motion.div>
         </div>
