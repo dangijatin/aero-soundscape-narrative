@@ -33,7 +33,7 @@ const LocationMap: React.FC<LocationMapProps> = ({
   // This key should be restricted to your domain in the Google Cloud Console
   const { isLoaded, loadError } = useJsApiLoader({
     id: 'google-map-script',
-    googleMapsApiKey: process.env.GOOGLE_MAPS_API_KEY || 'YOUR_API_KEY_HERE'
+    googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY || 'YOUR_API_KEY_HERE'
   });
 
   const mapContainerStyle = {
