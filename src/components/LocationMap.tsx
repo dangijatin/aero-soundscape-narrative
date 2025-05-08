@@ -29,10 +29,11 @@ const LocationMap: React.FC<LocationMapProps> = ({
   // Find center point for the map based on active location or first location
   const activeLocationData = locations.find(loc => loc.name === activeLocation) || locations[0];
   
-  // Google Maps configuration
-  const { isLoaded } = useJsApiLoader({
+  // Google Maps configuration - using a restricted API key
+  // This key should be restricted to your domain in the Google Cloud Console
+  const { isLoaded, loadError } = useJsApiLoader({
     id: 'google-map-script',
-    googleMapsApiKey: 'AIzaSyAZbi0Wel_kgDcFxTjlixLZlvt4mk3AuSE' // This is a placeholder API key - replace with your actual API key
+    googleMapsApiKey: process.env.GOOGLE_MAPS_API_KEY || 'YOUR_API_KEY_HERE'
   });
 
   const mapContainerStyle = {
@@ -51,6 +52,7 @@ const LocationMap: React.FC<LocationMapProps> = ({
     zoomControl: true,
   };
   
+  if (loadError) return <div style={{ height }} className={`bg-red-100 text-red-700 flex items-center justify-center p-4 rounded-lg ${className}`}>Error loading maps</div>;
   if (!isLoaded) return <div style={{ height }} className={`bg-gray-200 rounded-lg flex items-center justify-center ${className}`}>Loading Map...</div>;
 
   return (
