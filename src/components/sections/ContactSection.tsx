@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import ScrollReveal from '../ScrollReveal';
 import { Facebook, Instagram, Mail, MapPin, Phone } from 'lucide-react';
@@ -32,7 +31,7 @@ const ContactSection = () => {
     }
   ];
 
-  const [activeLocation, setActiveLocation] = useState('ahmedabad');
+  const [activeLocation, setActiveLocation] = useState('Ahmedabad');
 
   return (
     <section id="contact" className="scroll-section py-24 bg-white">
@@ -53,11 +52,11 @@ const ContactSection = () => {
                 <button
                   key={location.name}
                   className={`px-4 py-2 rounded-full transition-colors ${
-                    activeLocation === location.name.toLowerCase() 
+                    activeLocation === location.name 
                       ? 'bg-navy-600 text-white' 
                       : 'bg-gray-100 hover:bg-gray-200 text-navy-800'
                   }`}
-                  onClick={() => setActiveLocation(location.name.toLowerCase())}
+                  onClick={() => setActiveLocation(location.name)}
                 >
                   {location.name} {location.isHeadquarters && "(HQ)"}
                 </button>
@@ -69,29 +68,29 @@ const ContactSection = () => {
                 <div className="md:w-1/3">
                   <AudioVisualizer barCount={5} className="mb-4 h-10" />
                   <h4 className="text-xl font-semibold mb-2">
-                    {locations.find(loc => loc.name.toLowerCase() === activeLocation)?.name || "Ahmedabad"}
-                    {locations.find(loc => loc.name.toLowerCase() === activeLocation)?.isHeadquarters && 
+                    {locations.find(loc => loc.name === activeLocation)?.name || "Ahmedabad"}
+                    {locations.find(loc => loc.name === activeLocation)?.isHeadquarters && 
                       <span className="ml-2 text-xs bg-amber-500 text-white px-2 py-0.5 rounded-full">Headquarters</span>}
                   </h4>
                   <div className="space-y-3">
                     <div className="flex items-start space-x-3">
                       <MapPin className="text-amber-500 flex-shrink-0 mt-1" size={18} />
                       <p className="text-navy-700 whitespace-pre-line">
-                        {locations.find(loc => loc.name.toLowerCase() === activeLocation)?.address || ""}
+                        {locations.find(loc => loc.name === activeLocation)?.address || ""}
                       </p>
                     </div>
                     
                     <div className="flex items-center space-x-3">
                       <Phone className="text-amber-500 flex-shrink-0" size={18} />
                       <p className="text-navy-700">
-                        {locations.find(loc => loc.name.toLowerCase() === activeLocation)?.phone || ""}
+                        {locations.find(loc => loc.name === activeLocation)?.phone || ""}
                       </p>
                     </div>
                     
                     <div className="flex items-center space-x-3">
                       <Mail className="text-amber-500 flex-shrink-0" size={18} />
                       <p className="text-navy-700">
-                        {locations.find(loc => loc.name.toLowerCase() === activeLocation)?.email || ""}
+                        {locations.find(loc => loc.name === activeLocation)?.email || ""}
                       </p>
                     </div>
                   </div>
@@ -100,7 +99,7 @@ const ContactSection = () => {
                 <div className="md:w-2/3 h-64 rounded-lg overflow-hidden">
                   <LocationMap 
                     locations={locations} 
-                    activeLocation={locations.find(loc => loc.name.toLowerCase() === activeLocation)?.name}
+                    activeLocation={activeLocation}
                     height="100%"
                     className="rounded-lg shadow-md"
                   />

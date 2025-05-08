@@ -1,21 +1,6 @@
 
 import React from 'react';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import 'leaflet/dist/leaflet.css';
-import { MapPin } from 'lucide-react';
-import L from 'leaflet';
-
-// Fix for default marker icons in react-leaflet
-// Create a custom icon
-const customIcon = new L.Icon({
-  iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
-  iconRetinaUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png',
-  shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
-  iconSize: [25, 41],
-  iconAnchor: [12, 41],
-  popupAnchor: [1, -34],
-  shadowSize: [41, 41]
-});
+import { GoogleMap, useJsApiLoader, Marker, InfoWindow } from '@react-google-maps/api';
 
 export interface Location {
   name: string;
@@ -39,41 +24,67 @@ const LocationMap: React.FC<LocationMapProps> = ({
   height = "400px",
   className = ""
 }) => {
+  const [selectedLocation, setSelectedLocation] = React.useState<Location | null>(null);
+  
   // Find center point for the map based on active location or first location
   const activeLocationData = locations.find(loc => loc.name === activeLocation) || locations[0];
-  const center = activeLocationData.coordinates;
+  
+  // Google Maps configuration
+  const { isLoaded } = useJsApiLoader({
+    id: 'google-map-script',
+    googleMapsApiKey: 'AIzaSyAZbi0Wel_kgDcFxTjlixLZlvt4mk3AuSE' // This is a placeholder API key - replace with your actual API key
+  });
+
+  const mapContainerStyle = {
+    width: '100%',
+    height: '100%',
+    borderRadius: '0.5rem'
+  };
+
+  const center = {
+    lat: activeLocationData.coordinates[0],
+    lng: activeLocationData.coordinates[1]
+  };
+  
+  const options = {
+    disableDefaultUI: false,
+    zoomControl: true,
+  };
+  
+  if (!isLoaded) return <div style={{ height }} className={`bg-gray-200 rounded-lg flex items-center justify-center ${className}`}>Loading Map...</div>;
 
   return (
     <div style={{ height }} className={`rounded-lg overflow-hidden ${className}`}>
-      <MapContainer 
-        center={center} 
-        zoom={13} 
-        style={{ height: "100%", width: "100%" }}
-        className="z-0"
+      <GoogleMap
+        mapContainerStyle={mapContainerStyle}
+        center={center}
+        zoom={15}
+        options={options}
       >
-        <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
         {locations.map((location) => (
-          <Marker 
-            key={location.name} 
-            position={location.coordinates} 
-            icon={customIcon}
-          >
-            <Popup>
-              <div className="p-2">
-                <h3 className="font-bold text-navy-800">
-                  {location.name}
-                  {location.isHeadquarters && <span className="ml-2 text-xs bg-amber-500 text-white px-2 py-0.5 rounded-full">HQ</span>}
-                </h3>
-                <p className="text-sm whitespace-pre-line mt-1">{location.address}</p>
-                <p className="text-sm mt-1">{location.phone}</p>
-              </div>
-            </Popup>
-          </Marker>
+          <Marker
+            key={location.name}
+            position={{ lat: location.coordinates[0], lng: location.coordinates[1] }}
+            onClick={() => setSelectedLocation(location)}
+          />
         ))}
-      </MapContainer>
+        
+        {selectedLocation && (
+          <InfoWindow
+            position={{ lat: selectedLocation.coordinates[0], lng: selectedLocation.coordinates[1] }}
+            onCloseClick={() => setSelectedLocation(null)}
+          >
+            <div className="p-2">
+              <h3 className="font-bold text-gray-800">
+                {selectedLocation.name}
+                {selectedLocation.isHeadquarters && <span className="ml-2 text-xs bg-amber-500 text-white px-2 py-0.5 rounded-full">HQ</span>}
+              </h3>
+              <p className="text-sm whitespace-pre-line mt-1">{selectedLocation.address}</p>
+              <p className="text-sm mt-1">{selectedLocation.phone}</p>
+            </div>
+          </InfoWindow>
+        )}
+      </GoogleMap>
     </div>
   );
 };
