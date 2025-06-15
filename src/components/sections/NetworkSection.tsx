@@ -1,7 +1,6 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import LocationMap from '../LocationMap';
 
 const NetworkSection = () => {
   const locations = [
@@ -11,25 +10,30 @@ const NetworkSection = () => {
       address: "OPP. CALICO DOME, RELIEF ROAD,\nNEAR RAILWAY STATION\nAHMEDABAD 380001",
       phone: "+91 79 22146 0",
       email: "info@audiolights.com",
-      isHeadquarters: true
+      isHeadquarters: true,
+      image: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?q=80&w=1000&auto=format&fit=crop"
     },
     { 
       name: "Bhopal", 
       coordinates: [23.265009, 77.404002] as [number, number],
       address: "62. CHAITANYA MARKET, HAMIDIA ROAD\nOPP. NADIRA BUS STAND\nBHOPAL 462016",
       phone: "+91 755 2741 660",
-      email: "bhopal@audiolights.com"
+      email: "bhopal@audiolights.com",
+      image: "https://images.unsplash.com/photo-1486718448742-163732cd1544?q=80&w=1000&auto=format&fit=crop"
     },
     { 
       name: "Raipur", 
       coordinates: [21.244232, 81.634032] as [number, number],
       address: "SHOP F2/F3, 1ST FLOOR GK TOWER\nNEAR MANJU MAMTA, MG ROAD\nRAIPUR 492001",
       phone: "+91 771 4221 001",
-      email: "raipur@audiolights.com"
+      email: "raipur@audiolights.com",
+      image: "https://images.unsplash.com/photo-1494891848038-7bd202a2afeb?q=80&w=1000&auto=format&fit=crop"
     }
   ];
   
   const [activeLocation, setActiveLocation] = useState<string>("Ahmedabad");
+  
+  const activeLocationData = locations.find(loc => loc.name === activeLocation) || locations[0];
   
   return (
     <section id="network" className="scroll-section py-32 bg-gradient-to-b from-audiolights-900 to-audiolights-950 text-white relative overflow-hidden">
@@ -114,11 +118,33 @@ const NetworkSection = () => {
             className="h-full"
           >
             <div className="bg-audiolights-800/30 backdrop-blur-sm p-4 rounded-2xl border border-audiolights-700/30 h-full">
-              <LocationMap 
-                locations={locations} 
-                activeLocation={activeLocation} 
-                height="500px"
-              />
+              <div className="h-[500px] rounded-lg overflow-hidden relative">
+                <motion.img
+                  key={activeLocation}
+                  initial={{ opacity: 0, scale: 1.1 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5 }}
+                  src={activeLocationData.image}
+                  alt={`${activeLocationData.name} Office`}
+                  className="w-full h-full object-cover rounded-lg"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent rounded-lg" />
+                <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                  <h4 className="text-2xl font-bold mb-2">
+                    {activeLocationData.name}
+                    {activeLocationData.isHeadquarters && 
+                      <span className="ml-2 text-xs bg-audiolights-copper px-2 py-1 rounded-full">HQ</span>
+                    }
+                  </h4>
+                  <p className="text-sm opacity-90 whitespace-pre-line mb-2">
+                    {activeLocationData.address}
+                  </p>
+                  <div className="flex flex-col gap-1 text-sm opacity-90">
+                    <p>{activeLocationData.phone}</p>
+                    <p>{activeLocationData.email}</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </motion.div>
         </div>
