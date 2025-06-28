@@ -62,7 +62,7 @@ const BrandsSection = () => {
   };
   const selectedBrandData = brands.find(brand => brand.id === selectedBrand);
   return <section id="brands" className="scroll-section py-24 bg-white">
-      <div className="container mx-auto px-[129px]">
+      <div className="container mx-auto px-[30px]">
         <ScrollReveal>
           <h2 className="text-3xl md:text-5xl font-bold text-center mb-16">
             Our <span className="text-amber-500">Brands</span>
@@ -72,7 +72,7 @@ const BrandsSection = () => {
         <div ref={brandsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {brands.map((brand, index) => <ScrollReveal key={brand.name} delay={index % 5 + 1 as 1 | 2 | 3 | 4 | 5}>
               <div className="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 group cursor-pointer" onClick={() => handleOpenBrandDetails(brand.id)}>
-                <div className="p-6 flex flex-col h-full">
+                <div className="p-6 flex flex-col h-full px-[16px]">
                   <div className="mb-4 overflow-hidden rounded">
                     <img src={brand.logo} alt={`${brand.name} logo`} className="w-full h-20 object-contain transition-transform duration-500 group-hover:scale-105" />
                   </div>
