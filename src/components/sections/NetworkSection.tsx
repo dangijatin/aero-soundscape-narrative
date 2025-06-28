@@ -54,7 +54,7 @@ const NetworkSection = () => {
       }} className="absolute -left-1/3 bottom-1/4 w-2/3 h-2/3 bg-gradient-to-tr from-audiolights-800/5 to-transparent rounded-full blur-3xl" />
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto relative z-10 py-[60px] px-[59px]">
         <motion.div initial={{
         opacity: 0,
         y: 20
