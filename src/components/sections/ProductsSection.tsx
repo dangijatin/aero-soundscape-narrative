@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import ScrollReveal from '../ScrollReveal';
 import { FileText } from 'lucide-react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 const ProductsSection = () => {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
@@ -198,45 +199,47 @@ const ProductsSection = () => {
       
       {/* Product Category Detail Dialog */}
       <Dialog open={!!selectedCategory} onOpenChange={handleCloseDetails}>
-        <DialogContent className="sm:max-w-[700px]">
-          <DialogHeader>
+        <DialogContent className="sm:max-w-[500px] max-h-[80vh] p-0">
+          <DialogHeader className="p-6 pb-4">
             <DialogTitle className="text-2xl font-bold">{selectedCategoryData?.name}</DialogTitle>
           </DialogHeader>
           
-          <div className="mt-4">
-            <div className="aspect-video w-full rounded-lg overflow-hidden mb-6">
-              <img 
-                src={selectedCategoryData?.image} 
-                alt={selectedCategoryData?.name} 
-                className="w-full h-full object-cover"
-              />
-            </div>
-            
-            <p className="text-navy-700 mb-6">{selectedCategoryData?.details}</p>
-            
-            <div className="mb-6">
-              <h4 className="text-lg font-medium mb-3">Products in this Category:</h4>
-              <div className="grid grid-cols-2 gap-2">
-                {selectedCategoryData?.products.map(product => (
-                  <div key={product} className="flex items-center gap-2 p-2 bg-navy-50 rounded">
-                    <span className="w-2 h-2 bg-amber-500 rounded-full"></span>
-                    <span className="text-sm">{product}</span>
-                  </div>
-                ))}
+          <ScrollArea className="max-h-[calc(80vh-100px)] px-6">
+            <div className="pb-6">
+              <div className="aspect-video w-full rounded-lg overflow-hidden mb-6">
+                <img 
+                  src={selectedCategoryData?.image} 
+                  alt={selectedCategoryData?.name} 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              
+              <p className="text-navy-700 mb-6">{selectedCategoryData?.details}</p>
+              
+              <div className="mb-6">
+                <h4 className="text-lg font-medium mb-3">Products in this Category:</h4>
+                <div className="grid grid-cols-1 gap-2">
+                  {selectedCategoryData?.products.map(product => (
+                    <div key={product} className="flex items-center gap-2 p-2 bg-navy-50 rounded">
+                      <span className="w-2 h-2 bg-amber-500 rounded-full"></span>
+                      <span className="text-sm">{product}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              
+              <div className="flex justify-between items-center pt-4 border-t border-gray-200">
+                <p className="text-sm text-navy-500">For detailed specifications and pricing</p>
+                <button 
+                  onClick={() => selectedCategoryData && handleCatalogClick(selectedCategoryData.catalogPath)}
+                  className="btn-primary inline-flex items-center gap-2"
+                >
+                  <FileText size={16} />
+                  Download Catalogue
+                </button>
               </div>
             </div>
-            
-            <div className="flex justify-between items-center pt-4 border-t border-gray-200">
-              <p className="text-sm text-navy-500">For detailed specifications and pricing</p>
-              <button 
-                onClick={() => selectedCategoryData && handleCatalogClick(selectedCategoryData.catalogPath)}
-                className="btn-primary inline-flex items-center gap-2"
-              >
-                <FileText size={16} />
-                Download Catalogue
-              </button>
-            </div>
-          </div>
+          </ScrollArea>
         </DialogContent>
       </Dialog>
     </section>
