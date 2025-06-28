@@ -115,9 +115,9 @@ const NetworkSection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="h-full"
+            className="h-auto"
           >
-            <div className="bg-audiolights-800/30 backdrop-blur-sm p-4 rounded-2xl border border-audiolights-700/30 h-full">
+            <div className="bg-audiolights-800/30 backdrop-blur-sm p-4 rounded-2xl border border-audiolights-700/30 h-auto">
               <div className="h-[500px] rounded-lg overflow-hidden relative">
                 <motion.img
                   key={activeLocation}
