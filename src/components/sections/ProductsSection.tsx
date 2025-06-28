@@ -68,7 +68,7 @@ const ProductsSection = () => {
   };
   const selectedCategoryData = categories.find(category => category.id === selectedCategory);
   return <section id="products" className="scroll-section py-24 bg-white">
-      <div className="container mx-0 px-[100px]">
+      <div className="container mx-0 px-[60px]">
         <ScrollReveal>
           <h2 className="text-3xl md:text-5xl font-bold text-center mb-16">
             Our <span className="text-amber-500">Products</span>

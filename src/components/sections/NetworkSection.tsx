@@ -72,7 +72,7 @@ const NetworkSection = () => {
           <div className="w-24 h-1 bg-gradient-to-r from-audiolights-copper to-audiolights-copper/50 mx-auto rounded-full" />
         </motion.div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 xl:gap-24 max-w-7xl mx-auto items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 xl:gap-24 max-w-7xl mx-auto items-center px-[30px]">
           <motion.div initial={{
           opacity: 0,
           x: -50
