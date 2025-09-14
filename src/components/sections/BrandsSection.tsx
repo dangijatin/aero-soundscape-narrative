@@ -1,5 +1,7 @@
 import React, { useRef, useState } from 'react';
 import ScrollReveal from '../ScrollReveal';
+import img6 from '../../assets/6.png';
+import img7 from '../../assets/7.png';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 const BrandsSection = () => {
   const [selectedBrand, setSelectedBrand] = useState<string | null>(null);
@@ -9,7 +11,7 @@ const BrandsSection = () => {
     description: "India's leading PA brand with over 80 years legacy in sound reinforcement.",
     year: "Est. 1940",
     highlight: "Legacy Brand",
-    logo: "https://placehold.co/400x200/e2e8f0/1e293b?text=AHUJA",
+    logo: img6,
     detailedDescription: "AHUJA RADIOS is today India's leading manufacturer & exporter of Public Address Equipment. Established in 1940, in last 8 decades we have been able to cement AHUJA as the most trusted brand in sound reinforcement industry by introducing reliable products through continuous research & development. Right since the inception company has aspired and worked diligently towards offering wide range of products to fulfill every conceivable PA application requirement."
   }, {
     id: "studiomaster",
@@ -17,7 +19,7 @@ const BrandsSection = () => {
     description: "Premium Pro Audio solutions for DJ, education, religious, and corporate sectors.",
     year: "Est. 1994",
     highlight: "Make in India",
-    logo: "https://placehold.co/400x200/e2e8f0/1e293b?text=STUDIOMASTER",
+    logo: img7,
     detailedDescription: "Studiomaster Professional, a brand under Audioplus and part of the Ahuja Radios legacy, is a leading Indian manufacturer of professional audio equipment. Since 1994, we've delivered reliable, high-quality solutions tailored to the Indian market—including mixers, amplifiers, speakers, microphones, DJ gear, and more. With cutting-edge manufacturing near Mumbai, a strong R&D team, and nationwide service support, we're trusted across education, corporate, religious, and entertainment sectors."
   }];
   const otherBrands = ["Behringer", "DJ Tech", "Ciare"];
