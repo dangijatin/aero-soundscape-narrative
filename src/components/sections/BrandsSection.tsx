@@ -1,7 +1,5 @@
 import React, { useRef, useState } from 'react';
 import ScrollReveal from '../ScrollReveal';
-import img6 from '../../assets/6.png';
-import img7 from '../../assets/7.png';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 const BrandsSection = () => {
   const [selectedBrand, setSelectedBrand] = useState<string | null>(null);
@@ -11,7 +9,7 @@ const BrandsSection = () => {
     description: "India's leading PA brand with over 80 years legacy in sound reinforcement.",
     year: "Est. 1940",
     highlight: "Legacy Brand",
-    logo: img6,
+    logo: "https://placehold.co/400x200/e2e8f0/1e293b?text=AHUJA",
     detailedDescription: "AHUJA RADIOS is today India's leading manufacturer & exporter of Public Address Equipment. Established in 1940, in last 8 decades we have been able to cement AHUJA as the most trusted brand in sound reinforcement industry by introducing reliable products through continuous research & development. Right since the inception company has aspired and worked diligently towards offering wide range of products to fulfill every conceivable PA application requirement."
   }, {
     id: "studiomaster",
@@ -19,7 +17,7 @@ const BrandsSection = () => {
     description: "Premium Pro Audio solutions for DJ, education, religious, and corporate sectors.",
     year: "Est. 1994",
     highlight: "Make in India",
-    logo: img7,
+    logo: "https://placehold.co/400x200/e2e8f0/1e293b?text=STUDIOMASTER",
     detailedDescription: "Studiomaster Professional, a brand under Audioplus and part of the Ahuja Radios legacy, is a leading Indian manufacturer of professional audio equipment. Since 1994, we've delivered reliable, high-quality solutions tailored to the Indian market—including mixers, amplifiers, speakers, microphones, DJ gear, and more. With cutting-edge manufacturing near Mumbai, a strong R&D team, and nationwide service support, we're trusted across education, corporate, religious, and entertainment sectors."
   }];
   const otherBrands = ["Behringer", "DJ Tech", "Ciare"];
@@ -39,32 +37,34 @@ const BrandsSection = () => {
           </h2>
         </ScrollReveal>
         
-        <div ref={brandsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto place-items-center">
+        <div ref={brandsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {brands.map((brand, index) => <ScrollReveal key={brand.name} delay={index % 5 + 1 as 1 | 2 | 3 | 4 | 5}>
-              <div className="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 group cursor-pointer w-full max-w-sm h-full" onClick={() => handleOpenBrandDetails(brand.id)}>
-                <div className="p-6 flex flex-col h-full items-center justify-between min-h-[400px]">
-                  <div className="flex flex-col items-center text-center space-y-4 flex-grow">
-                    <div className="mb-2 overflow-hidden rounded w-full flex justify-center items-center h-20">
-                      <img src={brand.logo} alt={`${brand.name} logo`} className="h-16 w-auto object-contain transition-transform duration-500 group-hover:scale-105 max-w-[180px]" />
-                    </div>
-                    <h3 className="text-xl font-bold text-center">{brand.name}</h3>
-                    <span className="text-xs bg-gray-100 text-navy-600 px-3 py-1 rounded-full">
+              <div className="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 group cursor-pointer" onClick={() => handleOpenBrandDetails(brand.id)}>
+                <div className="p-6 flex flex-col h-full px-[16px]">
+                  <div className="mb-4 overflow-hidden rounded">
+                    <img src={brand.logo} alt={`${brand.name} logo`} className="w-full h-20 object-contain transition-transform duration-500 group-hover:scale-105" />
+                  </div>
+                  <div className="flex justify-between items-start mb-3">
+                    <h3 className="text-xl font-bold">{brand.name}</h3>
+                    <span className="text-xs bg-gray-100 text-navy-600 px-2 py-1 rounded">
                       {brand.year}
                     </span>
-                    <p className="text-navy-600 text-center text-sm leading-relaxed">{brand.description}</p>
                   </div>
-                  <div className="flex flex-col items-center gap-3 mt-6">
-                    <span className="inline-block text-xs font-medium text-amber-500 border border-amber-500 px-3 py-1 rounded-full">
+                  <p className="text-navy-600 mb-4 flex-grow">{brand.description}</p>
+                  <div className="mt-auto flex justify-between items-center">
+                    <span className="inline-block text-xs font-medium text-amber-500 border border-amber-500 px-2 py-1 rounded">
                       {brand.highlight}
                     </span>
-                    <span className="text-sm text-navy-600 hover:text-amber-500 cursor-pointer transition-colors duration-200">Learn more →</span>
+                    <span className="text-sm text-navy-600 hover:text-amber-500">Learn more →</span>
                   </div>
                 </div>
               </div>
             </ScrollReveal>)}
         </div>
         
-  {/* Removed empty ScrollReveal to fix syntax error */}
+        <ScrollReveal delay={3}>
+          
+        </ScrollReveal>
       </div>
 
       {/* Brand Detail Dialog */}
