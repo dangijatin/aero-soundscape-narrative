@@ -1,6 +1,7 @@
 import React from 'react';
 import ScrollReveal from '../ScrollReveal';
 import ParallaxSection from '../ParallaxSection';
+import conferenceRoom from '../assets/conference-room.png';
 const ExpertiseSection = () => {
   const areas = [{
     title: "Installation Audio",
@@ -17,7 +18,7 @@ const ExpertiseSection = () => {
   }, {
     title: "Public Address Systems",
     description: "Reliable announcement systems for institutions, hospitals, and transport hubs.",
-    image: "https://images.unsplash.com/photo-1525619842924-23f6cacf9696?q=80&w=2070"
+    image: conferenceRoom
   }];
   return <ParallaxSection id="expertise" className="scroll-section py-24 bg-audiolights-900 text-white" backgroundImage="https://images.unsplash.com/photo-1505489304219-85ce67a3d00e?q=80&w=2071">
       <div className="container relative z-10 py-0 mx-0 px-[80px]">
