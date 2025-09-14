@@ -1,23 +1,18 @@
 import React, { useRef, useState } from 'react';
 import ScrollReveal from '../ScrollReveal';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import img6 from '../../assets/6.png';
+import img7 from '../../assets/7.png';
+
 const BrandsSection = () => {
   const [selectedBrand, setSelectedBrand] = useState<string | null>(null);
   const brands = [{
-    id: "audiolights",
-    name: "Audio&Lights",
-    description: "Our own legacy brand offering reliable professional audio solutions.",
-    year: "Since 1962",
-    highlight: "Own Brand",
-    logo: "https://placehold.co/400x200/e2e8f0/1e293b?text=AUDIO%26LIGHTS",
-    detailedDescription: "Audio&Lights is our flagship brand, established in 1962, delivering trusted audio solutions across Central India for over six decades. As our own brand, we ensure premium quality and reliable products that meet the highest standards of sound excellence."
-  }, {
     id: "ahuja",
     name: "Ahuja Radios",
     description: "India's leading PA brand with over 80 years legacy in sound reinforcement.",
     year: "Est. 1940",
     highlight: "Legacy Brand",
-    logo: "https://placehold.co/400x200/e2e8f0/1e293b?text=AHUJA",
+    logo: img6,
     detailedDescription: "AHUJA RADIOS is today India's leading manufacturer & exporter of Public Address Equipment. Established in 1940, in last 8 decades we have been able to cement AHUJA as the most trusted brand in sound reinforcement industry by introducing reliable products through continuous research & development. Right since the inception company has aspired and worked diligently towards offering wide range of products to fulfill every conceivable PA application requirement."
   }, {
     id: "studiomaster",
@@ -25,32 +20,9 @@ const BrandsSection = () => {
     description: "Premium Pro Audio solutions for DJ, education, religious, and corporate sectors.",
     year: "Est. 1994",
     highlight: "Make in India",
-    logo: "https://placehold.co/400x200/e2e8f0/1e293b?text=STUDIOMASTER",
+    logo: img7,
     detailedDescription: "Studiomaster Professional, a brand under Audioplus and part of the Ahuja Radios legacy, is a leading Indian manufacturer of professional audio equipment. Since 1994, we've delivered reliable, high-quality solutions tailored to the Indian market—including mixers, amplifiers, speakers, microphones, DJ gear, and more. With cutting-edge manufacturing near Mumbai, a strong R&D team, and nationwide service support, we're trusted across education, corporate, religious, and entertainment sectors."
-  }, {
-    id: "audiocenter",
-    name: "Audiocenter",
-    description: "Full portfolio distribution as exclusive national partner.",
-    year: "Partnership Est. 2022",
-    highlight: "Exclusive Distribution",
-    logo: "https://placehold.co/400x200/e2e8f0/1e293b?text=AUDIOCENTER",
-    detailedDescription: "As the exclusive national partner for Audiocenter in India, we offer their complete portfolio of premium audio solutions. This partnership, established in 2022, allows us to bring cutting-edge international technology to the Indian market with full local support and expertise."
-  }, {
-    id: "faitalpro",
-    name: "FaitalPRO",
-    description: "Italian high-quality loudspeakers and drivers.",
-    year: "Exclusive Distribution",
-    highlight: "Italian Quality",
-    logo: "https://placehold.co/400x200/e2e8f0/1e293b?text=FAITALPRO",
-    detailedDescription: "FaitalPRO represents the pinnacle of Italian audio engineering excellence. As their exclusive distributor in India, we provide their renowned high-quality loudspeakers and drivers to professionals who demand superior sound reproduction and reliability. Each product embodies Italian craftsmanship and attention to detail."
-  }, {
-    id: "fidek",
-    name: "Fidek",
-    description: "Specialized audio solutions for various applications.",
-    year: "Distributed Brand",
-    highlight: "Specialized Solutions",
-    logo: "https://placehold.co/400x200/e2e8f0/1e293b?text=FIDEK",
-    detailedDescription: "Fidek offers specialized audio solutions designed for specific applications where standard equipment won't suffice. Their innovative approach to solving unique audio challenges makes them an essential part of our portfolio for clients with specialized requirements."
+  
   }];
   const otherBrands = ["Behringer", "DJ Tech", "Ciare"];
   const brandsRef = useRef<HTMLDivElement>(null);
