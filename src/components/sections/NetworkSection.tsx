@@ -1,6 +1,10 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import img8 from '../../assets/8.png';
+import img9 from '../../assets/9.png';
+import img10 from '../../assets/10.png';
+
 
 const NetworkSection = () => {
   const locations = [{
@@ -10,21 +14,21 @@ const NetworkSection = () => {
     phone: "+91 79 22146 0",
     email: "info@audiolights.com",
     isHeadquarters: true,
-    image: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?q=80&w=1000&auto=format&fit=crop"
+    image: img8
   }, {
     name: "Bhopal",
     coordinates: [23.265009, 77.404002] as [number, number],
     address: "62. CHAITANYA MARKET, HAMIDIA ROAD\nOPP. NADIRA BUS STAND\nBHOPAL 462016",
     phone: "+91 755 2741 660",
     email: "bhopal@audiolights.com",
-    image: "https://images.unsplash.com/photo-1486718448742-163732cd1544?q=80&w=1000&auto=format&fit=crop"
+    image: img9
   }, {
     name: "Raipur",
     coordinates: [21.244232, 81.634032] as [number, number],
     address: "SHOP F2/F3, 1ST FLOOR GK TOWER\nNEAR MANJU MAMTA, MG ROAD\nRAIPUR 492001",
     phone: "+91 771 4221 001",
     email: "raipur@audiolights.com",
-    image: "https://images.unsplash.com/photo-1494891848038-7bd202a2afeb?q=80&w=1000&auto=format&fit=crop"
+    image: img10
   }];
 
   const [activeLocation, setActiveLocation] = useState<string>("Ahmedabad");
@@ -136,7 +140,8 @@ const NetworkSection = () => {
                   transition={{ duration: 0.5 }}
                   src={activeLocationData.image}
                   alt={`${activeLocationData.name} Office`}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain bg-black"
+                  style={{ backgroundColor: '#18181b' }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
               </div>

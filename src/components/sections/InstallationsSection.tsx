@@ -3,28 +3,42 @@ import React, { useState } from 'react';
 import ScrollReveal from '../ScrollReveal';
 import ParallaxSection from '../ParallaxSection';
 import AudioVisualizer from '../AudioVisualizer';
+import vid17 from '../../assets/17.mp4';
+
+import vid19 from '../../assets/19.mp4';
+import vid20 from '../../assets/20.mp4';
+import vid22 from '../../assets/22.mp4';
+import vid18 from '../../assets/18.mp4';
+
+type Installation = {
+  type: string;
+  description: string;
+  video?: string;
+  image?: string;
+  audio?: string;
+};
 
 const InstallationsSection = () => {
-  const installations = [
+  const installations: Installation[] = [
     {
       type: "Auditoriums",
       description: "High-fidelity sound systems for perfect acoustics in any auditorium size.",
-      image: "https://images.unsplash.com/photo-1503095396549-807759245b35?q=80&w=2071"
+      video: vid17
     },
     {
       type: "Cafes & Restaurants",
       description: "Ambiance-enhancing audio solutions for dining and entertainment spaces.",
-      image: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=2074"
+      video: vid18
     },
     {
       type: "Discotheques",
       description: "Powerful, immersive sound systems designed for optimal performance in club environments.",
-      image: "https://images.unsplash.com/photo-1571600097567-80828a8949dc?q=80&w=2070"
+      video: vid19
     },
     {
       type: "Gymnasiums",
       description: "Clear, distributed audio for fitness environments and sporting facilities.",
-      image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2070"
+      video: vid20
     },
     {
       type: "Houses of Worship",
@@ -34,7 +48,7 @@ const InstallationsSection = () => {
     {
       type: "Public Address",
       description: "Reliable announcement systems for hospitals, railway stations, and airports.",
-      image: "https://images.unsplash.com/photo-1584269881525-11de4044eb3d?q=80&w=2071"
+      video: vid22
     }
   ];
 
@@ -61,18 +75,33 @@ const InstallationsSection = () => {
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
           <ScrollReveal direction="left">
-            <div className="relative overflow-hidden rounded-lg h-80 lg:h-[500px]">
-              <img 
-                src={activeInstallation.image} 
-                alt={activeInstallation.type}
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out transform scale-105"
-              />
+            <div className="relative overflow-hidden rounded-lg h-80 lg:h-[500px] bg-black">
+              {activeInstallation.video ? (
+                <video
+                  src={activeInstallation.video}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out transform scale-105"
+                />
+              ) : (
+                <img
+                  src={activeInstallation.image}
+                  alt={activeInstallation.type}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out transform scale-105"
+                />
+              )}
               <div className="absolute inset-0 bg-gradient-to-t from-audiolights-950/90 to-transparent"></div>
-              
               <div className="absolute bottom-0 left-0 p-8 w-full">
                 <h3 className="text-2xl font-bold mb-2">{activeInstallation.type}</h3>
                 <p className="text-audiolights-200 mb-4">{activeInstallation.description}</p>
-                
+                {activeInstallation.audio && (
+                  <audio controls className="mb-4 w-full">
+                    <source src={activeInstallation.audio} />
+                    Your browser does not support the audio element.
+                  </audio>
+                )}
                 <AudioVisualizer className="mt-6" barCount={7} />
               </div>
             </div>
