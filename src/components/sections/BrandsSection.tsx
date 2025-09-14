@@ -37,23 +37,25 @@ const BrandsSection = () => {
           </h2>
         </ScrollReveal>
         
-        <div ref={brandsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div ref={brandsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto place-items-center">
           {brands.map((brand, index) => <ScrollReveal key={brand.name} delay={index % 5 + 1 as 1 | 2 | 3 | 4 | 5}>
-              <div className="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 group cursor-pointer" onClick={() => handleOpenBrandDetails(brand.id)}>
-                <div className="p-6 flex flex-col h-full items-center px-[16px]">
-                  <div className="mb-4 overflow-hidden rounded w-full flex justify-center">
-                    <img src={brand.logo} alt={`${brand.name} logo`} className="h-20 object-contain transition-transform duration-500 group-hover:scale-105" style={{maxWidth: '220px'}} />
+              <div className="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 group cursor-pointer w-full max-w-sm h-full" onClick={() => handleOpenBrandDetails(brand.id)}>
+                <div className="p-6 flex flex-col h-full items-center justify-between min-h-[400px]">
+                  <div className="flex flex-col items-center text-center space-y-4 flex-grow">
+                    <div className="mb-2 overflow-hidden rounded w-full flex justify-center items-center h-20">
+                      <img src={brand.logo} alt={`${brand.name} logo`} className="h-16 w-auto object-contain transition-transform duration-500 group-hover:scale-105 max-w-[180px]" />
+                    </div>
+                    <h3 className="text-xl font-bold text-center">{brand.name}</h3>
+                    <span className="text-xs bg-gray-100 text-navy-600 px-3 py-1 rounded-full">
+                      {brand.year}
+                    </span>
+                    <p className="text-navy-600 text-center text-sm leading-relaxed">{brand.description}</p>
                   </div>
-                  <h3 className="text-xl font-bold text-center w-full">{brand.name}</h3>
-                  <span className="text-xs bg-gray-100 text-navy-600 px-2 py-1 rounded mt-1 mb-2 block text-center w-full" style={{maxWidth: '120px', marginLeft: 'auto', marginRight: 'auto'}}>
-                    {brand.year}
-                  </span>
-                  <p className="text-navy-600 mb-4 text-center w-full">{brand.description}</p>
-                  <div className="mt-auto flex flex-col items-center gap-2 w-full">
-                    <span className="inline-block text-xs font-medium text-amber-500 border border-amber-500 px-2 py-1 rounded mb-1">
+                  <div className="flex flex-col items-center gap-3 mt-6">
+                    <span className="inline-block text-xs font-medium text-amber-500 border border-amber-500 px-3 py-1 rounded-full">
                       {brand.highlight}
                     </span>
-                    <span className="text-sm text-navy-600 hover:text-amber-500 cursor-pointer">Learn more →</span>
+                    <span className="text-sm text-navy-600 hover:text-amber-500 cursor-pointer transition-colors duration-200">Learn more →</span>
                   </div>
                 </div>
               </div>
