@@ -4,14 +4,6 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } f
 const BrandsSection = () => {
   const [selectedBrand, setSelectedBrand] = useState<string | null>(null);
   const brands = [{
-    id: "audiolights",
-    name: "Audio&Lights",
-    description: "Our own legacy brand offering reliable professional audio solutions.",
-    year: "Since 1962",
-    highlight: "Own Brand",
-    logo: "https://placehold.co/400x200/e2e8f0/1e293b?text=AUDIO%26LIGHTS",
-    detailedDescription: "Audio&Lights is our flagship brand, established in 1962, delivering trusted audio solutions across Central India for over six decades. As our own brand, we ensure premium quality and reliable products that meet the highest standards of sound excellence."
-  }, {
     id: "ahuja",
     name: "Ahuja Radios",
     description: "India's leading PA brand with over 80 years legacy in sound reinforcement.",
@@ -27,30 +19,6 @@ const BrandsSection = () => {
     highlight: "Make in India",
     logo: "https://placehold.co/400x200/e2e8f0/1e293b?text=STUDIOMASTER",
     detailedDescription: "Studiomaster Professional, a brand under Audioplus and part of the Ahuja Radios legacy, is a leading Indian manufacturer of professional audio equipment. Since 1994, we've delivered reliable, high-quality solutions tailored to the Indian market—including mixers, amplifiers, speakers, microphones, DJ gear, and more. With cutting-edge manufacturing near Mumbai, a strong R&D team, and nationwide service support, we're trusted across education, corporate, religious, and entertainment sectors."
-  }, {
-    id: "audiocenter",
-    name: "Audiocenter",
-    description: "Full portfolio distribution as exclusive national partner.",
-    year: "Partnership Est. 2022",
-    highlight: "Exclusive Distribution",
-    logo: "https://placehold.co/400x200/e2e8f0/1e293b?text=AUDIOCENTER",
-    detailedDescription: "As the exclusive national partner for Audiocenter in India, we offer their complete portfolio of premium audio solutions. This partnership, established in 2022, allows us to bring cutting-edge international technology to the Indian market with full local support and expertise."
-  }, {
-    id: "faitalpro",
-    name: "FaitalPRO",
-    description: "Italian high-quality loudspeakers and drivers.",
-    year: "Exclusive Distribution",
-    highlight: "Italian Quality",
-    logo: "https://placehold.co/400x200/e2e8f0/1e293b?text=FAITALPRO",
-    detailedDescription: "FaitalPRO represents the pinnacle of Italian audio engineering excellence. As their exclusive distributor in India, we provide their renowned high-quality loudspeakers and drivers to professionals who demand superior sound reproduction and reliability. Each product embodies Italian craftsmanship and attention to detail."
-  }, {
-    id: "fidek",
-    name: "Fidek",
-    description: "Specialized audio solutions for various applications.",
-    year: "Distributed Brand",
-    highlight: "Specialized Solutions",
-    logo: "https://placehold.co/400x200/e2e8f0/1e293b?text=FIDEK",
-    detailedDescription: "Fidek offers specialized audio solutions designed for specific applications where standard equipment won't suffice. Their innovative approach to solving unique audio challenges makes them an essential part of our portfolio for clients with specialized requirements."
   }];
   const otherBrands = ["Behringer", "DJ Tech", "Ciare"];
   const brandsRef = useRef<HTMLDivElement>(null);
@@ -72,31 +40,27 @@ const BrandsSection = () => {
         <div ref={brandsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {brands.map((brand, index) => <ScrollReveal key={brand.name} delay={index % 5 + 1 as 1 | 2 | 3 | 4 | 5}>
               <div className="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 group cursor-pointer" onClick={() => handleOpenBrandDetails(brand.id)}>
-                <div className="p-6 flex flex-col h-full px-[16px]">
-                  <div className="mb-4 overflow-hidden rounded">
-                    <img src={brand.logo} alt={`${brand.name} logo`} className="w-full h-20 object-contain transition-transform duration-500 group-hover:scale-105" />
+                <div className="p-6 flex flex-col h-full items-center px-[16px]">
+                  <div className="mb-4 overflow-hidden rounded w-full flex justify-center">
+                    <img src={brand.logo} alt={`${brand.name} logo`} className="h-20 object-contain transition-transform duration-500 group-hover:scale-105" style={{maxWidth: '220px'}} />
                   </div>
-                  <div className="flex justify-between items-start mb-3">
-                    <h3 className="text-xl font-bold">{brand.name}</h3>
-                    <span className="text-xs bg-gray-100 text-navy-600 px-2 py-1 rounded">
-                      {brand.year}
-                    </span>
-                  </div>
-                  <p className="text-navy-600 mb-4 flex-grow">{brand.description}</p>
-                  <div className="mt-auto flex justify-between items-center">
-                    <span className="inline-block text-xs font-medium text-amber-500 border border-amber-500 px-2 py-1 rounded">
+                  <h3 className="text-xl font-bold text-center w-full">{brand.name}</h3>
+                  <span className="text-xs bg-gray-100 text-navy-600 px-2 py-1 rounded mt-1 mb-2 block text-center w-full" style={{maxWidth: '120px', marginLeft: 'auto', marginRight: 'auto'}}>
+                    {brand.year}
+                  </span>
+                  <p className="text-navy-600 mb-4 text-center w-full">{brand.description}</p>
+                  <div className="mt-auto flex flex-col items-center gap-2 w-full">
+                    <span className="inline-block text-xs font-medium text-amber-500 border border-amber-500 px-2 py-1 rounded mb-1">
                       {brand.highlight}
                     </span>
-                    <span className="text-sm text-navy-600 hover:text-amber-500">Learn more →</span>
+                    <span className="text-sm text-navy-600 hover:text-amber-500 cursor-pointer">Learn more →</span>
                   </div>
                 </div>
               </div>
             </ScrollReveal>)}
         </div>
         
-        <ScrollReveal delay={3}>
-          
-        </ScrollReveal>
+  {/* Removed empty ScrollReveal to fix syntax error */}
       </div>
 
       {/* Brand Detail Dialog */}
