@@ -1,23 +1,8 @@
-
 import React from 'react';
-
 const Logo = () => {
-  return (
-    <div className="inline-flex items-center">
-      <span className="text-white">aud
-        <span className="relative">
-          i
-          <span className="absolute -top-3 -left-[2px] text-[10px]">♪</span>
-        </span>
-        o</span>
-      <span className="text-[#35579f]">&l
-        <span className="relative">
-          i
-          <span className="absolute -top-3 -left-[2px] text-[10px]">✦</span>
-        </span>
-        ghts</span>
-    </div>
-  );
+  return <div className="inline-flex items-center">
+      
+      
+    </div>;
 };
-
 export default Logo;
