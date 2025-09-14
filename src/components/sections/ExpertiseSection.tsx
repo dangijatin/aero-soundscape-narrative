@@ -1,24 +1,28 @@
 import React from 'react';
 import ScrollReveal from '../ScrollReveal';
 import ParallaxSection from '../ParallaxSection';
-import conferenceRoom from '../../assets/conference-room.png';
+import img2 from '../../assets/2.png';
+import img3 from '../../assets/3.png';
+import img4 from '../../assets/4.png';
+import img5 from '../../assets/5.png';
+
 const ExpertiseSection = () => {
   const areas = [{
     title: "Installation Audio",
     description: "Complete sound system design and setup for venues of all sizes.",
-    image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?q=80&w=2070"
+    image: img2
   }, {
     title: "DJ Systems",
     description: "Professional-grade equipment for performers and entertainment venues.",
-    image: "https://images.unsplash.com/photo-1516280440614-37939bbacd81?q=80&w=2070"
+    image: img3
   }, {
     title: "Premium Karaoke Systems",
     description: "High-fidelity sound systems specifically designed for karaoke environments.",
-    image: "https://images.unsplash.com/photo-1608454367599-acdaa6ef17aa?q=80&w=2074"
+    image: img4
   }, {
     title: "Public Address Systems",
     description: "Reliable announcement systems for institutions, hospitals, and transport hubs.",
-    image: conferenceRoom
+    image: img5
   }];
   return <ParallaxSection id="expertise" className="scroll-section py-24 bg-audiolights-900 text-white" backgroundImage="https://images.unsplash.com/photo-1505489304219-85ce67a3d00e?q=80&w=2071">
       <div className="container relative z-10 py-0 mx-0 px-[80px]">
