@@ -92,13 +92,6 @@ const ProductsSection = () => {
                 </div>
                 <div className="category-overlay">
                   <div className="space-y-3">
-                    <button onClick={e => {
-                  e.stopPropagation();
-                  handleCatalogClick(category.catalogPath);
-                }} className="btn-secondary flex items-center gap-2">
-                      <FileText size={18} />
-                      View Catalogue
-                    </button>
                     <button className="text-white hover:text-amber-300 transition-colors text-sm">
                       Learn More
                     </button>
@@ -108,23 +101,6 @@ const ProductsSection = () => {
             </ScrollReveal>)}
         </div>
         
-        <ScrollReveal delay={5}>
-          <div className="mt-16 text-center">
-            <button onClick={() => handleCatalogClick("/catalogs/complete-catalog.pdf")} className="btn-primary inline-flex items-center gap-2">
-              <FileText size={18} />
-              Download Complete Catalogue
-            </button>
-            <p className="mt-4 text-sm text-navy-500">Available in PDF format (12MB)</p>
-            
-            <div className="mt-8 bg-navy-50 rounded-lg p-6 max-w-xl mx-auto">
-              <h4 className="text-lg font-medium mb-3 text-navy-800">Request Physical Catalogue</h4>
-              <p className="text-sm text-navy-600 mb-4">Prefer a printed catalogue? Complete the form in our contact section and select "Product Catalogue Request" as the subject.</p>
-              <a href="#contact" className="text-amber-500 hover:text-amber-600 inline-flex items-center gap-1 text-sm">
-                Go to Contact Form <span aria-hidden="true">→</span>
-              </a>
-            </div>
-          </div>
-        </ScrollReveal>
       </div>
       
       {/* Product Category Detail Dialog */}
@@ -152,12 +128,8 @@ const ProductsSection = () => {
                 </div>
               </div>
               
-              <div className="flex justify-between items-center pt-4 border-t border-gray-200">
-                <p className="text-sm text-navy-500">For detailed specifications and pricing</p>
-                <button onClick={() => selectedCategoryData && handleCatalogClick(selectedCategoryData.catalogPath)} className="btn-primary inline-flex items-center gap-2">
-                  <FileText size={16} />
-                  Download Catalogue
-                </button>
+              <div className="pt-4 border-t border-gray-200">
+                <p className="text-sm text-navy-500 text-center">For detailed specifications and pricing, please contact us</p>
               </div>
             </div>
           </ScrollArea>
