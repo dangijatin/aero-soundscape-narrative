@@ -107,14 +107,17 @@ const StorySection = () => {
             <h3 className="text-2xl md:text-3xl font-bold mb-8 tracking-tight">A Legacy of Excellence</h3>
             <div className="space-y-6 text-audiolights-700/90 text-lg">
               <p className="leading-relaxed">
-                Since 1962, Audio&Lights India Exim Pvt. Ltd. has been at the forefront of India's professional audio industry. What began as a manufacturing venture has transformed into a comprehensive trading, export, import, and distribution powerhouse.
+                Our family has been associated with the electronics and professional audio business for over 60 years. What began as a venture in home appliances and general electronics gradually evolved into a specialized focus on professional audio.
               </p>
               <p className="leading-relaxed">
-                Our journey has been driven by a relentless pursuit of excellence and a deep understanding of sound engineering. Today, we stand as a trusted name across India, known for our expertise, reliability, and the quality of our solutions.
+                With a keen passion for sound, Mr. Tarun Moolchandani the founder of Audio and Lights pioneered our journey into the professional audio and PA systems segment. What started with a retail outlet in Bhopal soon expanded into distribution across Madhya Pradesh. Building on this success, we extended our network into Chhattisgarh, followed by an office in Nagpur to serve the Vidarbh region. Later, we consolidated operations and established a base in Ahmedabad to cater to the Gujarat market.
               </p>
               <p className="leading-relaxed">
-                We take pride in our ability to evolve with changing technologies while maintaining the core values that have defined us for decades. Our transformation over the years reflects our adaptability and commitment to meeting the diverse needs of professionals in the audio industry.
+                Over the years, we have proudly represented and worked with leading professional audio brands such as Ahuja and Studiomaster. Today, we collaborate with more than 90 dealers across Western and Central India, making us the largest professional audio company in Central India.
               </p>
+              <p className="leading-relaxed">
+                Our growth has been guided by trust, long-term relationships, and an unwavering commitment to quality sound solutions.
+              </p>  
             </div>
           </motion.div>
           

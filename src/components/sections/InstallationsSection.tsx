@@ -1,5 +1,6 @@
 
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
+import { FaVolumeUp, FaVolumeMute } from 'react-icons/fa';
 import ScrollReveal from '../ScrollReveal';
 import ParallaxSection from '../ParallaxSection';
 import AudioVisualizer from '../AudioVisualizer';
@@ -40,11 +41,7 @@ const InstallationsSection = () => {
       description: "Clear, distributed audio for fitness environments and sporting facilities.",
       video: vid20
     },
-    {
-      type: "Houses of Worship",
-      description: "Respectful, pristine sound delivery systems for places of religious gathering.",
-      image: "https://images.unsplash.com/photo-1473177104440-ffee2f376098?q=80&w=2070"
-    },
+
     {
       type: "Public Address",
       description: "Reliable announcement systems for hospitals, railway stations, and airports.",
@@ -53,6 +50,30 @@ const InstallationsSection = () => {
   ];
 
   const [activeInstallation, setActiveInstallation] = useState(installations[0]);
+  const [audioPlaying, setAudioPlaying] = useState(false);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  const handleAudioToggle = () => {
+    if (!activeInstallation.audio) return;
+    if (audioRef.current) {
+      if (audioPlaying) {
+        audioRef.current.pause();
+        setAudioPlaying(false);
+      } else {
+        audioRef.current.play();
+        setAudioPlaying(true);
+      }
+    }
+  };
+
+  // Pause audio if installation changes
+  React.useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+    }
+    setAudioPlaying(false);
+  }, [activeInstallation]);
 
   return (
     <ParallaxSection 
@@ -76,6 +97,16 @@ const InstallationsSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
           <ScrollReveal direction="left">
             <div className="relative overflow-hidden rounded-lg h-80 lg:h-[500px] bg-black">
+              {/* Audio toggle button */}
+              {activeInstallation.audio && (
+                <button
+                  onClick={handleAudioToggle}
+                  className="absolute top-4 right-4 z-20 bg-audiolights-copper text-white rounded-full p-3 shadow-lg hover:bg-audiolights-copper/80 transition"
+                  aria-label={audioPlaying ? 'Pause audio' : 'Play audio'}
+                >
+                  {audioPlaying ? <FaVolumeUp size={22} /> : <FaVolumeMute size={22} />}
+                </button>
+              )}
               {activeInstallation.video ? (
                 <video
                   src={activeInstallation.video}
@@ -97,10 +128,13 @@ const InstallationsSection = () => {
                 <h3 className="text-2xl font-bold mb-2">{activeInstallation.type}</h3>
                 <p className="text-audiolights-200 mb-4">{activeInstallation.description}</p>
                 {activeInstallation.audio && (
-                  <audio controls className="mb-4 w-full">
-                    <source src={activeInstallation.audio} />
-                    Your browser does not support the audio element.
-                  </audio>
+                  <audio
+                    ref={audioRef}
+                    src={activeInstallation.audio}
+                    className="mb-4 w-full"
+                    controls
+                    style={{ display: 'none' }}
+                  />
                 )}
                 <AudioVisualizer className="mt-6" barCount={7} />
               </div>
