@@ -101,7 +101,100 @@ const ProductsSection = () => {
             </ScrollReveal>)}
         </div>
         
-      </div>
+        </div>
+        
+        {/* Catalogue Downloads */}
+        <ScrollReveal delay={5}>
+          <div className="mt-16 text-center">
+            <h3 className="text-2xl font-bold text-navy-800 mb-8">Download Product Catalogues</h3>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+              <button 
+                onClick={() => handleCatalogClick("/catalogs/ahuja-catalog.pdf")} 
+                className="btn-primary inline-flex items-center gap-2"
+              >
+                <FileText size={18} />
+                Ahuja Catalogue
+              </button>
+              <button 
+                onClick={() => handleCatalogClick("/catalogs/studiomaster-catalog.pdf")} 
+                className="btn-secondary inline-flex items-center gap-2"
+              >
+                <FileText size={18} />
+                Studio Master Catalogue
+              </button>
+            </div>
+          </div>
+        </ScrollReveal>
+
+        {/* Physical Catalogue Request Form */}
+        <ScrollReveal delay={5}>
+          <div className="mt-16 bg-navy-50 rounded-lg p-8 max-w-2xl mx-auto">
+            <h4 className="text-xl font-bold text-navy-800 mb-4 text-center">Request Physical Catalogues</h4>
+            <p className="text-navy-600 mb-6 text-center">Get printed catalogues delivered to your location</p>
+            
+            <form className="space-y-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium text-navy-700 mb-1">Full Name</label>
+                  <input 
+                    type="text" 
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+                    placeholder="Enter your full name"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-navy-700 mb-1">Email</label>
+                  <input 
+                    type="email" 
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+                    placeholder="Enter your email"
+                  />
+                </div>
+              </div>
+              
+              <div>
+                <label className="block text-sm font-medium text-navy-700 mb-1">Phone Number</label>
+                <input 
+                  type="tel" 
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+                  placeholder="Enter your phone number"
+                />
+              </div>
+              
+              <div>
+                <label className="block text-sm font-medium text-navy-700 mb-1">Complete Address</label>
+                <textarea 
+                  rows={3}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+                  placeholder="Enter your complete mailing address"
+                ></textarea>
+              </div>
+              
+              <div>
+                <label className="block text-sm font-medium text-navy-700 mb-2">Select Catalogues</label>
+                <div className="space-y-2">
+                  <label className="flex items-center">
+                    <input type="checkbox" className="mr-2 text-amber-500 focus:ring-amber-500" />
+                    <span className="text-navy-700">Ahuja Catalogue</span>
+                  </label>
+                  <label className="flex items-center">
+                    <input type="checkbox" className="mr-2 text-amber-500 focus:ring-amber-500" />
+                    <span className="text-navy-700">Studio Master Catalogue</span>
+                  </label>
+                </div>
+              </div>
+              
+              <div className="pt-4">
+                <button 
+                  type="submit" 
+                  className="btn-primary w-full"
+                >
+                  Request Physical Catalogues
+                </button>
+              </div>
+            </form>
+          </div>
+        </ScrollReveal>
       
       {/* Product Category Detail Dialog */}
       <Dialog open={!!selectedCategory} onOpenChange={handleCloseDetails}>
