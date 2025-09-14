@@ -1,7 +1,7 @@
 import React from 'react';
 import ScrollReveal from '../ScrollReveal';
 import ParallaxSection from '../ParallaxSection';
-import conferenceRoom from '../assets/conference-room.png';
+import conferenceRoom from '../../assets/conference-room.png';
 const ExpertiseSection = () => {
   const areas = [{
     title: "Installation Audio",
