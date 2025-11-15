@@ -42,7 +42,7 @@ const BrandsSection = () => {
               <div className="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 group cursor-pointer" onClick={() => handleOpenBrandDetails(brand.id)}>
                 <div className="p-6 flex flex-col h-full px-[16px]">
                   <div className="mb-4 overflow-hidden rounded">
-                    <img src={brand.logo} alt={`${brand.name} logo`} className="w-full h-20 object-contain transition-transform duration-500 group-hover:scale-105" />
+                    <img src={brand.logo} alt={`${brand.name} logo`} loading="lazy" className="w-full h-20 object-contain transition-transform duration-500 group-hover:scale-105" />
                   </div>
                   <div className="flex justify-between items-start mb-3">
                     <h3 className="text-xl font-bold">{brand.name}</h3>
@@ -63,7 +63,9 @@ const BrandsSection = () => {
         </div>
         
         <ScrollReveal delay={3}>
-          
+          <div className="mt-12 text-center">
+            <p className="text-navy-600">We also work with: <span className="font-medium">{otherBrands.join(", ")}</span></p>
+          </div>
         </ScrollReveal>
       </div>
 
@@ -72,7 +74,7 @@ const BrandsSection = () => {
         <DialogContent className="sm:max-w-[600px]">
           <DialogHeader>
             <DialogTitle className="text-2xl font-bold flex items-center gap-2">
-              <img src={selectedBrandData?.logo} alt={selectedBrandData?.name} className="h-10 w-auto" />
+              <img src={selectedBrandData?.logo} alt={selectedBrandData?.name} loading="lazy" className="h-10 w-auto" />
               {selectedBrandData?.name}
             </DialogTitle>
             <DialogDescription className="text-base text-navy-700 mt-4">

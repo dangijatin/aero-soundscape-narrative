@@ -36,7 +36,7 @@ const ExpertiseSection = () => {
           {areas.map((area, index) => <ScrollReveal key={area.title} delay={index % 4 + 2 as 2 | 3 | 4 | 5}>
               <div className="relative group overflow-hidden rounded-lg">
                 <div className="absolute inset-0 bg-black opacity-40 group-hover:opacity-30 transition-opacity duration-300"></div>
-                <img src={area.image} alt={area.title} className="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-105" />
+                <img src={area.image} alt={area.title} loading="lazy" className="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-105" />
                 <div className="absolute inset-0 flex flex-col justify-end p-6">
                   <h3 className="text-2xl font-bold mb-2">{area.title}</h3>
                   <p className="text-audiolights-100">{area.description}</p>

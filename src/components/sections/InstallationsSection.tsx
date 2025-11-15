@@ -114,12 +114,14 @@ const InstallationsSection = () => {
                   loop
                   muted
                   playsInline
+                  preload="metadata"
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out transform scale-105"
                 />
               ) : (
                 <img
                   src={activeInstallation.image}
                   alt={activeInstallation.type}
+                  loading="lazy"
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out transform scale-105"
                 />
               )}
