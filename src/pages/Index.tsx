@@ -1,16 +1,18 @@
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, lazy, Suspense } from 'react';
 import Header from '../components/Header';
 import HeroSection from '../components/sections/HeroSection';
-import IntroSection from '../components/sections/IntroSection';
-import ExpertiseSection from '../components/sections/ExpertiseSection';
-import BrandsSection from '../components/sections/BrandsSection';
-import StorySection from '../components/sections/StorySection';
-import NetworkSection from '../components/sections/NetworkSection';
-import ProductsSection from '../components/sections/ProductsSection';
-import InstallationsSection from '../components/sections/InstallationsSection';
-import ContactSection from '../components/sections/ContactSection';
 import Footer from '../components/Footer';
+
+// Lazy load sections below the fold
+const IntroSection = lazy(() => import('../components/sections/IntroSection'));
+const ExpertiseSection = lazy(() => import('../components/sections/ExpertiseSection'));
+const BrandsSection = lazy(() => import('../components/sections/BrandsSection'));
+const StorySection = lazy(() => import('../components/sections/StorySection'));
+const NetworkSection = lazy(() => import('../components/sections/NetworkSection'));
+const ProductsSection = lazy(() => import('../components/sections/ProductsSection'));
+const InstallationsSection = lazy(() => import('../components/sections/InstallationsSection'));
+const ContactSection = lazy(() => import('../components/sections/ContactSection'));
 
 const Index = () => {
   const cursorRef = useRef<HTMLDivElement>(null);
@@ -58,14 +60,16 @@ const Index = () => {
       
       <main>
         <HeroSection />
-        <IntroSection />
-        <ExpertiseSection />
-        <BrandsSection />
-        <StorySection />
-        <NetworkSection />
-        <ProductsSection />
-        <InstallationsSection />
-        <ContactSection />
+        <Suspense fallback={<div className="min-h-screen" />}>
+          <IntroSection />
+          <ExpertiseSection />
+          <BrandsSection />
+          <StorySection />
+          <NetworkSection />
+          <ProductsSection />
+          <InstallationsSection />
+          <ContactSection />
+        </Suspense>
       </main>
       
       <Footer />
