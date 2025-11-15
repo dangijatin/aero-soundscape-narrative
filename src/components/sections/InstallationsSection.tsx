@@ -4,12 +4,6 @@ import { FaVolumeUp, FaVolumeMute } from 'react-icons/fa';
 import ScrollReveal from '../ScrollReveal';
 import ParallaxSection from '../ParallaxSection';
 import AudioVisualizer from '../AudioVisualizer';
-import vid17 from '../../assets/17.mp4';
-
-import vid19 from '../../assets/19.mp4';
-import vid20 from '../../assets/20.mp4';
-import vid22 from '../../assets/22.mp4';
-import vid18 from '../../assets/18.mp4';
 
 type Installation = {
   type: string;
@@ -24,28 +18,32 @@ const InstallationsSection = () => {
     {
       type: "Auditoriums",
       description: "High-fidelity sound systems for perfect acoustics in any auditorium size.",
-      video: vid17
+      video: "https://cdn.pixabay.com/video/2020/03/24/33784-401947489_tiny.mp4",
+      image: "https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?q=80&w=2070"
     },
     {
       type: "Cafes & Restaurants",
       description: "Ambiance-enhancing audio solutions for dining and entertainment spaces.",
-      video: vid18
+      video: "https://cdn.pixabay.com/video/2021/08/03/83951-582299001_tiny.mp4",
+      image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2070"
     },
     {
       type: "Discotheques",
       description: "Powerful, immersive sound systems designed for optimal performance in club environments.",
-      video: vid19
+      video: "https://cdn.pixabay.com/video/2022/10/25/136697-764177318_tiny.mp4",
+      image: "https://images.unsplash.com/photo-1574391884720-bbc3740c59d1?q=80&w=2069"
     },
     {
       type: "Gymnasiums",
       description: "Clear, distributed audio for fitness environments and sporting facilities.",
-      video: vid20
+      video: "https://cdn.pixabay.com/video/2020/05/26/39830-424506872_tiny.mp4",
+      image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2070"
     },
-
     {
       type: "Public Address",
       description: "Reliable announcement systems for hospitals, railway stations, and airports.",
-      video: vid22
+      video: "https://cdn.pixabay.com/video/2023/05/09/160975-825099894_tiny.mp4",
+      image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=2069"
     }
   ];
 
@@ -109,7 +107,9 @@ const InstallationsSection = () => {
               )}
               {activeInstallation.video ? (
                 <video
+                  key={activeInstallation.type}
                   src={activeInstallation.video}
+                  poster={activeInstallation.image}
                   autoPlay
                   loop
                   muted

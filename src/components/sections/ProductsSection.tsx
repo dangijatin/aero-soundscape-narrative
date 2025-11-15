@@ -9,7 +9,7 @@ const ProductsSection = () => {
     id: "speakers",
     name: "Speakers",
     description: "Active, passive, wall-mount & ceiling types",
-    image: "https://images.unsplash.com/photo-1545454675-3531b543be5d?q=80&w=2070",
+    image: "https://images.unsplash.com/photo-1545454675-3531b543be5d?q=80&w=800&auto=format&fit=crop",
     catalogPath: "/catalogs/speakers.pdf",
     details: "Our comprehensive range of speakers includes active and passive options for various applications, as well as specialized wall-mount and ceiling types for integrated installations. Each speaker is designed with sound quality and reliability as the primary focus.",
     products: ["Column Speakers", "Wall-Mount Speakers", "Ceiling Speakers", "Active PA Speakers", "Line Array Systems", "Subwoofers"]
@@ -17,7 +17,7 @@ const ProductsSection = () => {
     id: "amplifiers",
     name: "Amplifiers",
     description: "DJ power amps, transformer & direct coupled",
-    image: "https://images.unsplash.com/photo-1558662413-6ccc0eae3ad2?q=80&w=2069",
+    image: "https://images.unsplash.com/photo-1558662413-6ccc0eae3ad2?q=80&w=800&auto=format&fit=crop",
     catalogPath: "/catalogs/amplifiers.pdf",
     details: "Our amplifier range includes DJ power amplifiers for high-energy environments, as well as transformer-coupled and direct-coupled options for different applications. Each amplifier is engineered for reliability and clean sound reproduction.",
     products: ["Power Amplifiers", "Mixer-Amplifiers", "Multi-Channel Amplifiers", "Installation Amplifiers", "100V Line Amplifiers"]
@@ -25,7 +25,7 @@ const ProductsSection = () => {
     id: "microphones",
     name: "Microphones",
     description: "Wired and wireless options for every application",
-    image: "https://images.unsplash.com/photo-1617161712664-864a40fbcf9d?q=80&w=2068",
+    image: "https://images.unsplash.com/photo-1617161712664-864a40fbcf9d?q=80&w=800&auto=format&fit=crop",
     catalogPath: "/catalogs/microphones.pdf",
     details: "Our microphone collection features both wired and wireless options suitable for every application from stage performance to conference rooms. We offer handheld, lapel, headset, and boundary microphones with various pickup patterns.",
     products: ["Dynamic Microphones", "Condenser Microphones", "Wireless Microphone Systems", "Conference Microphones", "Boundary Microphones", "Headset & Lapel Microphones"]
@@ -33,7 +33,7 @@ const ProductsSection = () => {
     id: "mixers",
     name: "Mixers",
     description: "Digital and analog mixing solutions",
-    image: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=2070",
+    image: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=800&auto=format&fit=crop",
     catalogPath: "/catalogs/mixers.pdf",
     details: "Our selection of audio mixers includes both digital and analog options from compact portable units to comprehensive studio and live performance consoles. Each mixer is designed with intuitive controls and pristine sound quality.",
     products: ["Analog Mixing Consoles", "Digital Mixing Consoles", "Powered Mixers", "Rack-mount Mixers", "Zone Mixers", "DJ Mixers"]
@@ -41,7 +41,7 @@ const ProductsSection = () => {
     id: "processors",
     name: "Processors",
     description: "Advanced audio processing equipment",
-    image: "https://images.unsplash.com/photo-1601142634808-38923eb7615f?q=80&w=2070",
+    image: "https://images.unsplash.com/photo-1601142634808-38923eb7615f?q=80&w=800&auto=format&fit=crop",
     catalogPath: "/catalogs/processors.pdf",
     details: "Our audio processors provide advanced signal manipulation for optimal sound in any environment. From simple equalizers to complex digital signal processors, we offer solutions that enhance audio quality and system management.",
     products: ["Digital Signal Processors", "Equalizers", "Compressors/Limiters", "Crossovers", "Feedback Suppressors", "Multi-effects Processors"]
@@ -49,7 +49,7 @@ const ProductsSection = () => {
     id: "transducers",
     name: "Transducers",
     description: "High-quality audio conversion devices",
-    image: "https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?q=80&w=2069",
+    image: "https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?q=80&w=800&auto=format&fit=crop",
     catalogPath: "/catalogs/transducers.pdf",
     details: "Our transducer collection features high-quality audio conversion devices that translate electrical signals into sound waves with precision and fidelity. These components are at the heart of quality sound reproduction systems.",
     products: ["Drivers", "Horns", "Compression Drivers", "Woofers", "Tweeters", "Full-Range Drivers"]
