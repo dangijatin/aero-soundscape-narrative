@@ -84,7 +84,7 @@ const ProductsSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {categories.map((category, index) => <ScrollReveal key={category.name} delay={index % 5 + 1 as 1 | 2 | 3 | 4 | 5}>
               <div className="category-card h-64 relative group cursor-pointer" onClick={() => handleCategoryClick(category.id)}>
-                <img src={category.image} alt={category.name} className="absolute inset-0 w-full h-full object-cover object-center rounded-lg" />
+                <img src={category.image} alt={category.name} loading="lazy" className="absolute inset-0 w-full h-full object-cover object-center rounded-lg" />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-900/80 to-transparent rounded-lg"></div>
                 <div className="absolute bottom-0 left-0 p-6 text-white">
                   <h3 className="text-xl font-bold mb-1">{category.name}</h3>
@@ -132,12 +132,37 @@ const ProductsSection = () => {
             <h4 className="text-xl font-bold text-navy-800 mb-4 text-center">Request Physical Catalogues</h4>
             <p className="text-navy-600 mb-6 text-center">Get printed catalogues delivered to your location</p>
             
-            <form className="space-y-4">
+            <form className="space-y-4" onSubmit={(e) => {
+              e.preventDefault();
+              const formData = new FormData(e.currentTarget);
+              const name = formData.get('name') as string;
+              const email = formData.get('email') as string;
+              const phone = formData.get('phone') as string;
+              const address = formData.get('address') as string;
+              const ahuja = formData.get('ahuja') === 'on';
+              const studiomaster = formData.get('studiomaster') === 'on';
+              
+              if (!name || !email || !phone || !address || (!ahuja && !studiomaster)) {
+                alert('Please fill all fields and select at least one catalogue');
+                return;
+              }
+              
+              const catalogues = [];
+              if (ahuja) catalogues.push('Ahuja Catalogue');
+              if (studiomaster) catalogues.push('Studio Master Catalogue');
+              
+              const message = `Catalogue Request:%0A%0AName: ${encodeURIComponent(name)}%0AEmail: ${encodeURIComponent(email)}%0APhone: ${encodeURIComponent(phone)}%0AAddress: ${encodeURIComponent(address)}%0A%0ACatalogues Requested:%0A${catalogues.map(c => `- ${c}`).join('%0A')}`;
+              
+              window.open(`https://wa.me/919820048549?text=${message}`, '_blank');
+              e.currentTarget.reset();
+            }}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-navy-700 mb-1">Full Name</label>
                   <input 
-                    type="text" 
+                    type="text"
+                    name="name"
+                    required
                     className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent"
                     placeholder="Enter your full name"
                   />
@@ -145,7 +170,9 @@ const ProductsSection = () => {
                 <div>
                   <label className="block text-sm font-medium text-navy-700 mb-1">Email</label>
                   <input 
-                    type="email" 
+                    type="email"
+                    name="email"
+                    required
                     className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent"
                     placeholder="Enter your email"
                   />
@@ -155,7 +182,9 @@ const ProductsSection = () => {
               <div>
                 <label className="block text-sm font-medium text-navy-700 mb-1">Phone Number</label>
                 <input 
-                  type="tel" 
+                  type="tel"
+                  name="phone"
+                  required
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent"
                   placeholder="Enter your phone number"
                 />
@@ -165,6 +194,8 @@ const ProductsSection = () => {
                 <label className="block text-sm font-medium text-navy-700 mb-1">Complete Address</label>
                 <textarea 
                   rows={3}
+                  name="address"
+                  required
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent"
                   placeholder="Enter your complete mailing address"
                 ></textarea>
@@ -174,11 +205,11 @@ const ProductsSection = () => {
                 <label className="block text-sm font-medium text-navy-700 mb-2">Select Catalogues</label>
                 <div className="space-y-2">
                   <label className="flex items-center">
-                    <input type="checkbox" className="mr-2 text-amber-500 focus:ring-amber-500" />
+                    <input type="checkbox" name="ahuja" className="mr-2 text-amber-500 focus:ring-amber-500" />
                     <span className="text-navy-700">Ahuja Catalogue</span>
                   </label>
                   <label className="flex items-center">
-                    <input type="checkbox" className="mr-2 text-amber-500 focus:ring-amber-500" />
+                    <input type="checkbox" name="studiomaster" className="mr-2 text-amber-500 focus:ring-amber-500" />
                     <span className="text-navy-700">Studio Master Catalogue</span>
                   </label>
                 </div>
@@ -206,7 +237,7 @@ const ProductsSection = () => {
           <ScrollArea className="max-h-[calc(80vh-100px)] px-6">
             <div className="pb-6">
               <div className="aspect-video w-full rounded-lg overflow-hidden mb-6">
-                <img src={selectedCategoryData?.image} alt={selectedCategoryData?.name} className="w-full h-full object-cover" />
+                <img src={selectedCategoryData?.image} alt={selectedCategoryData?.name} loading="lazy" className="w-full h-full object-cover" />
               </div>
               
               <p className="text-navy-700 mb-6">{selectedCategoryData?.details}</p>
