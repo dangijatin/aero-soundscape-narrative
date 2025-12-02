@@ -2,61 +2,66 @@ import React from 'react';
 import ScrollReveal from '../ScrollReveal';
 import ParallaxSection from '../ParallaxSection';
 
+import img2 from '../../assets/2.png';
+import img3 from '../../assets/3.png';
+import img4 from '../../assets/4.png';
+import img5 from '../../assets/5.png';
+
 const ExpertiseSection = () => {
   const areas = [{
     title: "Installation Audio",
     description: "Complete sound system design and setup for venues of all sizes.",
-    image: "https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg?auto=compress&cs=tinysrgb&w=800"
+    image: img2
   }, {
     title: "DJ Systems",
     description: "Professional-grade equipment for performers and entertainment venues.",
-    image: "https://images.pexels.com/photos/1540406/pexels-photo-1540406.jpeg?auto=compress&cs=tinysrgb&w=800"
+    image: img3
   }, {
     title: "Premium Karaoke Systems",
     description: "High-fidelity sound systems specifically designed for karaoke environments.",
-    image: "https://images.pexels.com/photos/7097455/pexels-photo-7097455.jpeg?auto=compress&cs=tinysrgb&w=800"
+    image: img4
   }, {
     title: "Public Address Systems",
     description: "Reliable announcement systems for institutions, hospitals, and transport hubs.",
-    image: "https://images.pexels.com/photos/2111015/pexels-photo-2111015.jpeg?auto=compress&cs=tinysrgb&w=800"
+    image: img5
   }];
   return <ParallaxSection id="expertise" className="scroll-section py-24 bg-audiolights-900 text-white" backgroundImage="https://images.unsplash.com/photo-1505489304219-85ce67a3d00e?q=80&w=2071">
-      <div className="container relative z-10 py-0 mx-0 px-[80px]">
-        <ScrollReveal>
-          <h2 className="text-3xl md:text-5xl font-bold text-center mb-16">
-            Our <span className="text-audiolights-copper">Expertise</span>
-          </h2>
-        </ScrollReveal>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl mx-auto">
-          {areas.map((area, index) => <ScrollReveal key={area.title} delay={index % 4 + 2 as 2 | 3 | 4 | 5}>
-              <div className="relative group overflow-hidden rounded-lg h-64">
-                <div className="absolute inset-0 bg-black opacity-40 group-hover:opacity-30 transition-opacity duration-300 z-10"></div>
-                <img 
-                  src={area.image} 
-                  alt={area.title} 
-                  loading="lazy" 
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  onError={(e) => {
-                    e.currentTarget.src = 'https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg?auto=compress&cs=tinysrgb&w=800';
-                  }}
-                />
-                <div className="absolute inset-0 flex flex-col justify-end p-6 z-20">
-                  <h3 className="text-2xl font-bold mb-2">{area.title}</h3>
-                  <p className="text-audiolights-100">{area.description}</p>
-                </div>
-              </div>
-            </ScrollReveal>)}
-        </div>
-        
-        <ScrollReveal delay={5}>
-          <div className="text-center mt-16">
-            <p className="text-lg text-audiolights-200 inline-block border-b-2 border-audiolights-copper pb-1">
-              And much more...
-            </p>
+    <div className="container relative z-10 py-0 mx-0 px-[80px]">
+      <ScrollReveal>
+        <h2 className="text-3xl md:text-5xl font-bold text-center mb-16">
+          Our <span className="text-audiolights-copper">Expertise</span>
+        </h2>
+      </ScrollReveal>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+        {areas.map((area, index) => <ScrollReveal key={area.title} delay={index % 4 + 2 as 2 | 3 | 4 | 5}>
+          <div className="relative group overflow-hidden rounded-lg h-64">
+            <div className="absolute inset-0 bg-black opacity-40 group-hover:opacity-30 transition-opacity duration-300 z-10"></div>
+            <img
+              src={area.image}
+              alt={area.title}
+              loading="lazy"
+              className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              onError={(e) => {
+                e.currentTarget.src = 'https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg?auto=compress&cs=tinysrgb&w=800';
+              }}
+            />
+            <div className="absolute inset-0 flex flex-col justify-end p-6 z-20">
+              <h3 className="text-2xl font-bold mb-2">{area.title}</h3>
+              <p className="text-audiolights-100">{area.description}</p>
+            </div>
           </div>
-        </ScrollReveal>
+        </ScrollReveal>)}
       </div>
-    </ParallaxSection>;
+
+      <ScrollReveal delay={5}>
+        <div className="text-center mt-16">
+          <p className="text-lg text-audiolights-200 inline-block border-b-2 border-audiolights-copper pb-1">
+            And much more...
+          </p>
+        </div>
+      </ScrollReveal>
+    </div>
+  </ParallaxSection>;
 };
 export default ExpertiseSection;

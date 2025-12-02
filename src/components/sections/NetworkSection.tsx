@@ -11,7 +11,7 @@ const NetworkSection = () => {
     name: "Ahmedabad",
     coordinates: [23.028591, 72.591699] as [number, number],
     address: "OPP. CALICO DOME, RELIEF ROAD,\nNEAR RAILWAY STATION\nAHMEDABAD 380001",
-    phone: "+91 79 22146 0",
+    phone: "+91 89669 95522",
     email: "info@audiolights.com",
     isHeadquarters: true,
     image: img8
