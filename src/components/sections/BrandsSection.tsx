@@ -37,21 +37,21 @@ const BrandsSection = () => {
           </h2>
         </ScrollReveal>
         
-        <div ref={brandsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div ref={brandsRef} className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {brands.map((brand, index) => <ScrollReveal key={brand.name} delay={index % 5 + 1 as 1 | 2 | 3 | 4 | 5}>
-              <div className="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 group cursor-pointer" onClick={() => handleOpenBrandDetails(brand.id)}>
-                <div className="p-6 flex flex-col h-full px-[16px]">
-                  <div className="mb-4 overflow-hidden rounded">
-                    <img src={brand.logo} alt={`${brand.name} logo`} loading="lazy" className="w-full h-20 object-contain transition-transform duration-500 group-hover:scale-105" />
+              <div className="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 group cursor-pointer h-full" onClick={() => handleOpenBrandDetails(brand.id)}>
+                <div className="p-6 flex flex-col h-full min-h-[280px]">
+                  <div className="mb-4 overflow-hidden rounded h-20 flex items-center justify-center bg-gray-50">
+                    <img src={brand.logo} alt={`${brand.name} logo`} loading="lazy" className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105" />
                   </div>
                   <div className="flex justify-between items-start mb-3">
                     <h3 className="text-xl font-bold">{brand.name}</h3>
-                    <span className="text-xs bg-gray-100 text-navy-600 px-2 py-1 rounded">
+                    <span className="text-xs bg-gray-100 text-navy-600 px-2 py-1 rounded flex-shrink-0">
                       {brand.year}
                     </span>
                   </div>
-                  <p className="text-navy-600 mb-4 flex-grow">{brand.description}</p>
-                  <div className="mt-auto flex justify-between items-center">
+                  <p className="text-navy-600 mb-4 flex-grow text-sm leading-relaxed">{brand.description}</p>
+                  <div className="mt-auto flex justify-between items-center pt-2 border-t border-gray-100">
                     <span className="inline-block text-xs font-medium text-amber-500 border border-amber-500 px-2 py-1 rounded">
                       {brand.highlight}
                     </span>
