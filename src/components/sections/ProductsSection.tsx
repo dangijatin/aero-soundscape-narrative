@@ -107,8 +107,6 @@ const ProductsSection = () => {
             </ScrollReveal>)}
         </div>
         
-        </div>
-        
         {/* Catalogue Downloads */}
         <ScrollReveal delay={5}>
           <div className="mt-16 text-center">
@@ -232,6 +230,7 @@ const ProductsSection = () => {
             </form>
           </div>
         </ScrollReveal>
+      </div>
       
       {/* Product Category Detail Dialog */}
       <Dialog open={!!selectedCategory} onOpenChange={handleCloseDetails}>
