@@ -21,7 +21,7 @@ const NetworkSection = () => {
     address: "62. CHAITANYA MARKET, HAMIDIA ROAD\nOPP. NADIRA BUS STAND\nBHOPAL 462016",
     phone: "+91 755 2741 660",
     email: "bhopal@audiolights.com",
-    image: img9
+    image: "/images/offices/bhopal.jpg"
   }, {
     name: "Raipur",
     coordinates: [21.244232, 81.634032] as [number, number],
@@ -67,7 +67,7 @@ const NetworkSection = () => {
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-audiolights-copper to-audiolights-copper/50 mx-auto rounded-full" />
         </motion.div>
-        
+
         {/* Single container with information on left and image on right */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -90,7 +90,7 @@ const NetworkSection = () => {
                   </p>
                 </div>
               </div>
-              
+
               {/* Toggle buttons */}
               <div className="space-y-4">
                 <h4 className="text-xl font-medium text-white/90">Our Offices:</h4>
@@ -99,11 +99,10 @@ const NetworkSection = () => {
                     <motion.button
                       key={location.name}
                       whileHover={{ y: -2 }}
-                      className={`px-4 py-2 rounded-full text-sm transition-all duration-200 ${
-                        activeLocation === location.name
-                          ? 'bg-gradient-to-r from-audiolights-copper to-audiolights-copper/80 text-white shadow-lg'
-                          : 'bg-audiolights-800/50 text-audiolights-200 hover:bg-audiolights-700/50 hover:text-white'
-                      }`}
+                      className={`px-4 py-2 rounded-full text-sm transition-all duration-200 ${activeLocation === location.name
+                        ? 'bg-gradient-to-r from-audiolights-copper to-audiolights-copper/80 text-white shadow-lg'
+                        : 'bg-audiolights-800/50 text-audiolights-200 hover:bg-audiolights-700/50 hover:text-white'
+                        }`}
                       onClick={() => setActiveLocation(location.name)}
                     >
                       {location.name} {location.isHeadquarters && "(HQ)"}
@@ -111,7 +110,7 @@ const NetworkSection = () => {
                   ))}
                 </div>
               </div>
-              
+
               {/* Location details */}
               <div className="bg-audiolights-800/50 p-6 rounded-xl border border-audiolights-700/30">
                 <h4 className="text-xl font-bold mb-3 text-white">
@@ -129,7 +128,7 @@ const NetworkSection = () => {
                 </div>
               </div>
             </div>
-            
+
             {/* Right side - Image */}
             <div className="relative">
               <div className="aspect-[4/3] rounded-xl overflow-hidden relative">
@@ -140,8 +139,7 @@ const NetworkSection = () => {
                   transition={{ duration: 0.5 }}
                   src={activeLocationData.image}
                   alt={`${activeLocationData.name} Office`}
-                  className="w-full h-full object-contain bg-black"
-                  style={{ backgroundColor: '#18181b' }}
+                  className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
               </div>
