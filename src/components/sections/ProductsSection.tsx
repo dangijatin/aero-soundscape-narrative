@@ -55,10 +55,8 @@ const ProductsSection = () => {
     products: ["Drivers", "Horns", "Compression Drivers", "Woofers", "Tweeters", "Full-Range Drivers"]
   }];
   const handleCatalogClick = (catalogPath: string) => {
-    // In production, this would download or open the actual PDF
-    console.log("Opening catalog:", catalogPath);
-    alert(`In a production environment, this would download the catalog from ${catalogPath}`);
-    // window.open(catalogPath, '_blank');
+    // Open PDF in new tab for download
+    window.open(catalogPath, '_blank');
   };
   const handleCategoryClick = (id: string) => {
     setSelectedCategory(id);
